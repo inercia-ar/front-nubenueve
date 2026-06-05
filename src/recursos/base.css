@@ -1,0 +1,277 @@
+:root { 
+
+  --font-main:    'Outfit',        sans-serif;
+  --font-mono:    'Inconsolata',   monospace;
+  --font-grotesk: 'Space Grotesk', sans-serif;
+
+  --carbon05:  #15141305;
+  --carbon10:  #15141310;
+  --carbon15:  #15141315;
+  --carbon25:  #15141325;
+  --carbon35:  #15141335;
+  --carbon50:  #15141350;
+  --carbon65:  #15141365;
+  --carbon80:  #15141380;
+  --carbon90:  #15141390;
+  --carbon99:  #15141399;
+  --carbon:    #151413;
+
+  --ceniza05:  #24222005;
+  --ceniza10:  #24222010;
+  --ceniza15:  #24222015;
+  --ceniza25:  #24222025;
+  --ceniza35:  #24222035;
+  --ceniza50:  #24222050;
+  --ceniza65:  #24222065;
+  --ceniza80:  #24222080;
+  --ceniza90:  #24222090;
+  --ceniza99:  #24222099;
+  --ceniza:    #242220;
+
+  --polvo05:   #A39E9805;
+  --polvo10:   #A39E9810;
+  --polvo15:   #A39E9815;
+  --polvo25:   #A39E9825;
+  --polvo35:   #A39E9835;
+  --polvo50:   #A39E9850;
+  --polvo65:   #A39E9865;
+  --polvo80:   #A39E9880;
+  --polvo90:   #A39E9890;
+  --polvo99:   #A39E9899;
+  --polvo:     #A39E98;
+
+  --humo05:    #4A474305;
+  --humo10:    #4A474310;
+  --humo15:    #4A474315;
+  --humo25:    #4A474325;
+  --humo35:    #4A474335;
+  --humo50:    #4A474350;
+  --humo65:    #4A474365;
+  --humo80:    #4A474380;
+  --humo90:    #4A474390;
+  --humo99:    #4A474399;
+  --humo:      #4A4743;
+
+  --niebla05:  #08080705;
+  --niebla10:  #08080710;
+  --niebla15:  #08080715;
+  --niebla25:  #08080725;
+  --niebla35:  #08080735;
+  --niebla50:  #08080750;
+  --niebla65:  #08080765;
+  --niebla80:  #08080780;
+  --niebla90:  #08080790;
+  --niebla99:  #08080799;
+  --niebla:    #080807;
+
+  --brillo05:  #F5F2EB05;
+  --brillo10:  #F5F2EB10;
+  --brillo15:  #F5F2EB15;
+  --brillo25:  #F5F2EB25;
+  --brillo35:  #F5F2EB35;
+  --brillo50:  #F5F2EB50;
+  --brillo65:  #F5F2EB65;
+  --brillo80:  #F5F2EB80;
+  --brillo90:  #F5F2EB90;
+  --brillo99:  #F5F2EB99;
+  --brillo:    #F5F2EB;
+
+  --lirio05:   #FF330005;
+  --lirio10:   #FF330010;
+  --lirio15:   #FF330015;
+  --lirio25:   #FF330025;
+  --lirio35:   #FF330035;
+  --lirio50:   #FF330050;
+  --lirio65:   #FF330065;
+  --lirio80:   #FF330080;
+  --lirio90:   #FF330090;
+  --lirio99:   #FF330099;
+  --lirio:     #FF3300;
+  
+  --cristal05: #0055FF05;
+  --cristal10: #0055FF10;
+  --cristal15: #0055FF15;
+  --cristal25: #0055FF25;
+  --cristal35: #0055FF35;
+  --cristal50: #0055FF50;
+  --cristal65: #0055FF65;
+  --cristal80: #0055FF80;
+  --cristal90: #0055FF90;
+  --cristal99: #0055FF99;
+  --cristal:   #0055FF;
+
+  --arcilla05: #FFCC0005;
+  --arcilla10: #FFCC0010;
+  --arcilla15: #FFCC0015;
+  --arcilla25: #FFCC0025;
+  --arcilla35: #FFCC0035;
+  --arcilla50: #FFCC0050;
+  --arcilla65: #FFCC0065;
+  --arcilla80: #FFCC0080;
+  --arcilla90: #FFCC0090;
+  --arcilla99: #FFCC0099;
+  --arcilla:   #FFCC00;
+
+  --poma05:    #00FF4105;
+  --poma10:    #00FF4110;
+  --poma15:    #00FF4115;
+  --poma25:    #00FF4125;
+  --poma35:    #00FF4135;
+  --poma50:    #00FF4150;
+  --poma65:    #00FF4165;
+  --poma80:    #00FF4180;
+  --poma90:    #00FF4190;
+  --poma99:    #00FF4199;
+  --poma:      #00FF41;
+
+  /* SHIFTED from 2px to 1px for high-end precision */
+  --shadow-border: inset 0 0 0 1px;
+  --small-outline: 1px solid;
+
+  --radius-xl: 0px;
+  --radius-ll: 0px;
+  --radius-mm: 0px;
+  --radius-ss: 0px;
+  --radius-xs: 0px;
+
+  --animate-faster: 0.10s ease;
+  --animate-fast:   0.25s ease;
+  --animate-mid:    0.50s ease;
+  --animate-long:   0.80s cubic-bezier(0.85, 0, 0.15, 1);
+
+  --alpha-invisible: 0.00;
+  --alpha-eighty:      0.80;
+  --alpha-half:      0.50;
+  --alpha-quart:     0.25;
+  --alpha-disabled:  0.25;
+
+  --scale-min: scale(0.99);
+  --scale-low: scale(0.95);
+
+}
+
+html, body, #octantes { 
+
+  /* LAYOUT */ box-sizing: border-box;
+  /* BOX    */ width: 100%; height: 100%; margin: 0; padding: 0;
+  /* FILL   */ background-color: var(--carbon); color: var(--brillo);
+  /* The subtle technical grid pattern from the mockup */
+  background-image: 
+    linear-gradient(var(--carbon15) 1px, transparent 1px),
+    linear-gradient(90deg, var(--carbon15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center center;
+
+}
+
+#octantes > .root { 
+
+  /* LAYOUT */ display: flex; flex-direction: column;
+  /* BOX    */ width: 100%; height: 100%;
+  
+}
+
+:root:has(#octantes > .root) .static-nav, :root:has(#octantes > .root) .post-header { display: none !important; }
+.post .static-nav, .post .post-header { display: none !important; }
+
+*, *::before, *::after { box-sizing: inherit; }
+
+
+body, i                { font-family: var(--font-main);         }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-grotesk); text-transform: uppercase; letter-spacing: -0.04em; }
+code, pre              { font-family: var(--font-mono);         }
+strong, b              { color: var(--brillo); font-weight: 700; } /* Removed red highlight for strict elegance */
+ul, ol                 { display: block;                        }
+li                     { list-style-position: inside;           }
+
+/* Refined HR separator */
+hr                     { width: 100%; margin: 2rem 0; border: none; border-top: 1px solid var(--humo); flex-shrink: 0; }
+i, em                  { color: var(--polvo); margin-right: 0.15rem; font-style: italic; font-weight: 400 }
+
+a { 
+
+  /* Removed webkit gradients. Added precision underline */
+  color: var(--cristal);
+  font-family: var(--font-main); 
+  text-decoration: underline; 
+  text-decoration-color: var(--cristal35); 
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px; 
+  transition: all var(--animate-fast);
+
+}
+
+a:hover { 
+  
+  color: var(--lirio);
+  text-decoration-color: var(--lirio);
+  
+}
+
+/* Mechanical double-ring focus, replaced brutalist 250px shadow */
+a:focus, button:focus, input:focus, textarea:focus, select:focus, [role="button"]:focus, [tabindex="0"]:focus, tbody tr:focus-within { 
+  outline: none; 
+  box-shadow: 0 0 0 2px var(--carbon), 0 0 0 4px var(--lirio); 
+  transition: box-shadow var(--animate-faster); 
+}
+
+::selection                { background-color: var(--lirio50); color: var(--brillo);  }
+::-moz-selection           { background-color: var(--lirio50); color: var(--brillo);  }
+::-webkit-scrollbar        { background-color: var(--carbon); width: 6px; height: 6px; border-left: 1px solid var(--carbon25); }
+::-webkit-scrollbar-thumb  { background-color: var(--humo); border-radius: 0; transition: background-color var(--animate-fast); }
+::-webkit-scrollbar-thumb:hover { background-color: var(--lirio); }
+::-webkit-scrollbar-track  { background: transparent; border-radius: 0;               }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0;                      }
+::-webkit-scrollbar-corner { background-color: transparent;                           }
+
+@supports not selector(::-webkit-scrollbar) { *, *::before, *::after { scrollbar-width: none; scrollbar-color: var(--humo) var(--carbon); } }
+
+/* TACTILE HARDWARE AUDIO PLAYER */
+audio[controls] { 
+
+  /* BOX    */ width: 100%;
+  /* FILL   */ background: transparent;
+
+}
+
+audio::-webkit-media-controls-enclosure { 
+
+  /* BORDER */ border: var(--small-outline) var(--humo25); border-radius: var(--radius-ss);
+  /* FILL   */ background-color: var(--ceniza);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+}
+
+audio::-webkit-media-controls-enclosure:hover { 
+
+  /* FILL   */ background-color: var(--humo);
+
+}
+
+.figlet { 
+
+  /* LAYOUT */ display: flex; flex-direction: column; align-items: center; flex-shrink: 0; user-select: none;
+  /* BOX    */ width: 100%; height: 100%; overflow: hidden;
+  /* FONT   */ font-size: .8vw; line-height: 1.24;
+
+  &.clickable { cursor: pointer; }
+
+  & pre {
+  
+    /* LAYOUT */ flex-shrink: 0;
+    /* BOX    */ margin-bottom: .25rem; margin-top: .8rem; overflow: visible;
+    /* Removed gradient, using solid hardware phosphor look */
+    background: none; 
+    color: var(--humo);
+    font-family: monospace;
+    text-shadow: 0 0 8px var(--humo25);
+    transition: color var(--animate-fast), text-shadow var(--animate-fast);
+  
+  }
+
+}
+
+.figlet.clickable:hover pre {
+  color: var(--arcilla);
+  text-shadow: 0 0 12px var(--arcilla50);
+}
