@@ -43,7 +43,7 @@ function goItem(id) {
 
           <div class="foot">
             <div class="price">${{ item.precio }}</div>
-            <button class="btn-icon" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
+            <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
           </div>
         </div>
       </article>
@@ -62,7 +62,7 @@ function goItem(id) {
     </div>
 
     <div class="foot">
-      <router-link :to="{ name: 'home' }" class="btn">VOLVER</router-link>
+      <router-link :to="{ name: 'home' }" class="text-btn">VOLVER</router-link>
     </div>
   </section>
 </template>

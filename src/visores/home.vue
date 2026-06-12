@@ -45,7 +45,7 @@ const covers = (() => {
 
     <div class="botbar">
       <div class="small-text">VINILOS 33 1/3 · CINTAS DE CASETTE · CDs · ALTA PRECISIÓN</div>
-      <router-link :to="{ name: 'tienda' }" class="btn">EXPLORAR ARCHIVO</router-link>
+      <router-link :to="{ name: 'tienda' }" class="text-btn">EXPLORAR ARCHIVO</router-link>
     </div>
 
     <div class="covers" aria-hidden="true">

@@ -44,7 +44,7 @@ function goItem(id) {
 
           <div class="foot">
             <div class="price">${{ c.price.toLocaleString() }}</div>
-            <button class="btn-icon" @click.stop="store.removeFromCart(c.id)" title="Eliminar">✕</button>
+            <button class="icon-btn" @click.stop="store.removeFromCart(c.id)" title="Eliminar">✕</button>
           </div>
         </div>
       </article>
@@ -55,7 +55,7 @@ function goItem(id) {
     </div>
 
     <div class="foot">
-      <router-link :to="{ name: 'tienda' }" class="btn">VOLVER</router-link>
+      <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
     </div>
   </section>
 </template>

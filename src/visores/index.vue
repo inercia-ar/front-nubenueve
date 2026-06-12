@@ -1,7 +1,5 @@
 <template>
-  <div class="shell">
-    <main class="frame">
+  <div class="noise">
       <router-view></router-view>
-    </main>
   </div>
 </template>

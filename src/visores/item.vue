@@ -61,8 +61,8 @@ function add() {
         <div class="stock">STOCK: {{ item.stock }} UNIDADES</div>
 
         <div class="btn-row">
-          <button class="btn" @click="add">AÑADIR AL CARRO</button>
-          <router-link :to="{ name: 'tienda' }" class="btn">VOLVER</router-link>
+          <button class="text-btn" @click="add">AÑADIR AL CARRO</button>
+          <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
         </div>
       </div>
     </div>

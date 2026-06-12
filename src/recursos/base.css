@@ -40,38 +40,27 @@
 
 }
 
-html, body { 
-  box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 0;
-  background-color: var(--carbonSO); color: var(--brilloSO);
-}
+/* reset */
 
-*, *::before, *::after { box-sizing: inherit;              }
-body                   { font-family: var(--font-main);    }
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-grotesk); }
-code, pre              { font-family: var(--font-mono);    }
+html, body { box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 0; background-color: var(--carbonSO); color: var(--brilloSO); }
 
-a { 
-  color: var(--cristalSO);
-  font-family: var(--font-main); 
-  text-decoration: none;
-  transition: all var(--animate-d);
-  &:hover { color: var(--arcillaSO); }
-}
-
-a:focus, button:focus, input:focus, textarea:focus, select:focus { 
-  outline: none; 
-  background-color: var(--polvo35);
-  box-shadow: 0 0 0 1px var(--arcillaSO);
-  transition: box-shadow var(--animate-a);
-}
-
+*, *::before, *::after    { box-sizing: inherit;                                        }
+body                      { font-family: var(--font-main);                              }
+h1, h2, h3, h4, h5, h6    { font-family: var(--font-grotesk);                           }
+code, pre                 { font-family: var(--font-mono);                              }
 ::selection               { background-color: var(--arcillaSO); color: var(--nieblaSO); }
 ::-moz-selection          { background-color: var(--arcillaSO); color: var(--nieblaSO); }
 ::-webkit-scrollbar       { background-color: transparent; width: 6px; height: 6px;     }
-::-webkit-scrollbar-thumb { background-color: var(--arcillaSO); }
+::-webkit-scrollbar-thumb { background-color: var(--arcillaSO);                         }
+
+a { color: var(--cristalSO); font-family: var(--font-main); text-decoration: none; transition: all var(--animate-d); &:hover { color: var(--arcillaSO); } }
+a:focus, button:focus, input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 1px var(--arcillaSO); transition: all var(--animate-a); }
 
 @supports not selector(::-webkit-scrollbar) { *, *::before, *::after { scrollbar-width: thin; scrollbar-color: var(--arcillaSO) transparent; } }
 @media (max-width: 768px) { .min-hide { display: none; } }
+
+.noise { display: flex; flex-direction: column; position: relative; min-height: 100vh; background: var(--nieblaSO); border: 1px solid var(--brillo15); user-select: none; -webkit-user-select: none; }
+.noise::after { content: ''; background-image: url('/assets/noise.png');  position: fixed; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.1; }
 
 /* layout */
 
@@ -87,81 +76,31 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   padding-top: 0.75rem; border-top: 1px solid var(--polvo25);
 }
 
-.btn {
-  background-color: color-mix(in srgb, var(--carbonSO) 25%, transparent);
-  &:hover { background-color: var(--arcillaSO); border-color: transparent;}
+.swatch { width: 100%; height: 4px; margin-bottom: 1rem; }
+
+/* buttons */
+
+.text-btn { 
+  display: flex; align-items: center;
+  gap: 0.5rem; padding: 0.6rem 1.25rem;
+  background: transparent; border: none; color: var(--polvoSO);
+  font-family: var(--font-grotesk); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s ease;
+  &:hover { background: var(--arcillaSO); color: var(--nieblaSO); }
 }
 
-.small-text {
-  align-self: center;
-  color: var(--polvoSO);
+.icon-btn { 
+  display: grid; place-items: center;
+  width: 56px; height: 56px; padding-bottom: 5px;
+  background: transparent; border: none; color: var(--polvoSO);
+  font-family: var(--font-grotesk); font-size: 2rem;
+  cursor: pointer; transition: all 0.2s ease;
+  &:hover { background: var(--categoria); color: var(--carbonSO); border-color: var(--categoria); }
 }
 
-.swatch {
-  width: 100%;
-  height: 4px;
-  margin-bottom: 1rem;
-}
+/* text */
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.25rem;
-  background: transparent;
-  color: var(--brilloSO);
-  font-family: var(--font-grotesk);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  text-transform: uppercase;
-  border: 1px solid var(--brillo15);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-
-  &:hover { background: var(--brilloSO); color: var(--carbonSO); border-color: var(--brilloSO); }
-}
-
-
-/* ============================================
-   APP SHELL
-   ============================================ */
-
-.shell {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--carbonSO);
-  position: relative;
-}
-
-.shell::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.03;
-  background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-}
-
-.shell .frame {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 8px;
-  border: 1px solid var(--brillo15);
-  background-color: var(--nieblaSO);
-  position: relative;
-  overflow: visible;
-  user-select: none;
-  -webkit-user-select: none;
-}
+.small-text { align-self: center; color: var(--polvoSO); }
 
 /* ============================================
    HOME PAGE
@@ -363,7 +302,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   content: '';
   width: 100%;
   height: 3px;
-  background: var(--tema-foco);
+  background: var(--categoria);
   flex: 0 0 100%;
 }
 
@@ -395,7 +334,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--tema-foco);
+  background: var(--categoria);
   flex-shrink: 0;
   margin-right: 25px;
 }
@@ -455,33 +394,12 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   margin-right: auto;
 }
 
-.card .btn-icon {
-  width: 56px;
-  height: 56px;
-  display: grid;
-  place-items: center;
-  background: transparent;
-  color: var(--polvoSO);
-  border: 2px solid var(--humo15);
-  font-size: 2rem;
-  font-weight: 300;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: var(--font-grotesk);
-  border-radius: 0;
-  padding-bottom: 5px;
-}
 
-.card .btn-icon:hover {
-  background: var(--tema-foco);
-  color: var(--carbonSO);
-  border-color: var(--tema-foco);
-}
 
 .card.is-empty {
   opacity: 0.3;
   filter: grayscale(1);
-  --tema-foco: var(--humoSO);
+  --categoria: var(--humoSO);
   pointer-events: none;
 }
 
@@ -490,31 +408,16 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 }
 
 /* Card color themes */
-.card--0 { --tema-foco: var(--arcillaSO); }
-.card--1 { --tema-foco: var(--cristalSO); }
-.card--2 { --tema-foco: var(--lirioSO); }
-.card--3 { --tema-foco: var(--pomaSO); }
+.card--0 { --categoria: var(--arcillaSO); }
+.card--1 { --categoria: var(--cristalSO); }
+.card--2 { --categoria: var(--lirioSO); }
+.card--3 { --categoria: var(--pomaSO); }
 
 .shop > .foot {
   display: flex;
   justify-content: flex-end;
   padding-top: 1rem;
   flex-shrink: 0;
-}
-
-.shop > .foot .btn,
-.detalle .info .btn,
-.carro > .foot .btn,
-.error .modal .btn {
-  background-color: color-mix(in srgb, var(--carbonSO) 25%, transparent);
-}
-
-.shop > .foot .btn:hover,
-.detalle .info .btn:hover,
-.carro > .foot .btn:hover,
-.error .modal .btn:hover {
-  background-color: var(--arcillaSO);
-  border-color: transparent;
 }
 
 @media (max-width: 900px) {
@@ -589,13 +492,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   margin: 0;
 }
 
-.error .modal .btn {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-  padding: 0.65rem 1.25rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-}
+
 
 /* ============================================
    ITEM DETAIL PAGE
@@ -754,7 +651,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   margin-top: auto;
 }
 
-.detalle .info .btn-row .btn:first-child {
+.detalle .info .btn-row .text-btn:first-child {
   flex-grow: 1;
 }
 
@@ -793,11 +690,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   font-size: 0.65rem;
 }
 
-.carro .card .foot .btn-icon:hover {
-  background: var(--arcillaSO);
-  border-color: var(--arcillaSO);
-  color: var(--carbonSO);
-}
+
 
 .carro .vacio {
   flex-grow: 1;

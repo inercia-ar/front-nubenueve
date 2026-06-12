@@ -70,7 +70,7 @@ onMounted(() => {
         <h1 class="code">404</h1>
         <p class="serif-i text">Llegaste al final de la cinta</p>
 
-        <button @click="router.push({ name: 'home' })" class="btn">
+        <button @click="router.push({ name: 'home' })" class="text-btn">
           REBOBINAR
         </button>
       </div>
