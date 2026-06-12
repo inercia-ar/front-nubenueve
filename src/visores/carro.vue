@@ -1,0 +1,61 @@
+<script setup>
+import { useRouter } from 'vue-router'
+import { useStore } from '../recursos/store.js'
+
+const router = useRouter()
+const store = useStore()
+
+function goItem(id) {
+  router.push({ name: 'item', params: { id } })
+}
+</script>
+
+<template>
+  <section class="carro">
+    <header class="topbar">
+      <span class="small-text">NUBE NUEVE VOL 1</span>
+      <span class="audio-format min-hide">{{ store.cart.length }} ARTÍCULOS</span>
+      <span class="audio-format">TOTAL: ${{ store.cartTotal.toLocaleString() }}</span>
+    </header>
+
+    <div v-if="store.cart.length" class="grid">
+      <article
+        v-for="(c, index) in store.cart"
+        :key="c.id"
+        class="card"
+        :class="`card--${index % 4}`"
+        @click="goItem(c.id)"
+      >
+        <img class="image" :src="c.image" :alt="c.name" loading="lazy">
+
+        <div class="content">
+          <div class="head">
+            <span class="tag ">IDX-00{{ c.id }}</span>
+          </div>
+
+          <div class="body">
+            <h3>{{ c.name }}</h3>
+            <div class="tag">
+              <span>x{{ c.quantity }} UND</span>
+              <span class="divider">|</span>
+              <span>${{ (c.price * c.quantity).toLocaleString() }}</span>
+            </div>
+          </div>
+
+          <div class="foot">
+            <div class="price">${{ c.price.toLocaleString() }}</div>
+            <button class="btn-icon" @click.stop="store.removeFromCart(c.id)" title="Eliminar">✕</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div v-else class="vacio">
+      <p class="serif-i">El carro está vacío</p>
+    </div>
+
+    <div class="foot">
+      <router-link :to="{ name: 'tienda' }" class="btn">VOLVER</router-link>
+    </div>
+  </section>
+</template>

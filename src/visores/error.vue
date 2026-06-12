@@ -1,115 +1,98 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue'
 
 const router = useRouter()
+
+const words = ref([])
+
+function rand(min, max) {
+  return Math.random() * (max - min) + min
+}
+
+function pick(...args) {
+  return args[Math.floor(Math.random() * args.length)]
+}
+
+onMounted(() => {
+  const slots = [
+    // zone: [topMin, topMax, leftMin, leftMax, sizeMin, sizeMax, ...colors]
+    { text: 'SEÑAL',   zone: [-5, 2, 0, 20, 14, 20, '--carbonSO', '--carbonSO', '--lirio05'] },
+    { text: 'PERDIDA', zone: [-3, 4, 60, 85, 12, 16, '--lirio05', '--carbonSO', '--carbonSO'] },
+    { text: 'SEÑAL',   zone: [8, 18, 30, 50, 10, 14, '--humo10', '--humo10', '--carbonSO'] },
+    { text: 'PERDIDA', zone: [8, 18, 70, 95, 10, 13, '--carbonSO', '--lirio05', '--humo10'] },
+    { text: 'SEÑAL',   zone: [22, 34, -18, -5, 22, 30, '--carbonSO', '--carbonSO', '--humo10'] },
+    { text: 'PERDIDA', zone: [28, 38, 60, 80, 18, 24, '--lirio10', '--lirio05', '--carbonSO'] },
+    { text: 'SEÑAL',   zone: [40, 55, 25, 45, 14, 18, '--humo10', '--carbonSO', '--lirio05'] },
+    { text: 'PERDIDA', zone: [42, 52, -10, 5, 11, 14, '--lirio05', '--carbonSO', '--humo10'] },
+    { text: 'SEÑAL',   zone: [62, 75, 60, 80, 10, 15, '--humo10', '--carbonSO', '--carbonSO'] },
+    { text: 'PERDIDA', zone: [65, 75, 0, 15, 8, 10, '--carbonSO', '--humo05', '--lirio05'] },
+    { text: 'SEÑAL',   zone: [78, 88, 40, 65, 10, 13, '--carbonSO', '--humo05', '--carbonSO'] },
+    { text: 'PERDIDA', zone: [80, 90, 18, 35, 6, 8, '--humo05', '--carbonSO', '--carbonSO'] },
+  ]
+
+  words.value = slots.map(s => {
+    const top = rand(s.zone[0], s.zone[1])
+    const left = rand(s.zone[2], s.zone[3])
+    const size = rand(s.zone[4], s.zone[5])
+    const colors = s.zone.slice(6)
+    const color = pick(...colors)
+    const rotation = rand(-14, 14)
+
+    return {
+      text: s.text,
+      style: {
+        top: `${top}%`,
+        left: `${left}%`,
+        fontSize: `clamp(${size * 0.4}rem, ${size}vw, ${size}rem)`,
+        transform: `rotate(${rotation}deg)`,
+        color: `var(${color})`,
+      }
+    }
+  })
+})
 </script>
 
 <template>
-  <section class="not-found">
-    <div class="warning-tape top"></div>
-    
-    <div class="error-console">
-      <header class="console-header mono">SYS.ERR // CODE 404</header>
-      <div class="console-body">
-        <h1>SEÑAL<br>PERDIDA</h1>
-        <p class="mono">> LA CINTA SE HA CORTADO.</p>
-        <p class="mono">> POSIBLE FIN DEL CARRETE.</p>
-        
-        <button @click="router.push({ name: 'home' })" class="btn-volver">
-          [ EJECUTAR REBOBINADO AUTOMÁTICO ]
+  <section class="error">
+    <div class="ghost" aria-hidden="true">
+      <span
+        v-for="(w, i) in words"
+        :key="i"
+        class="ew"
+        :style="w.style"
+      >{{ w.text }}</span>
+    </div>
+
+    <div class="modal">
+      <div class="body">
+        <header class="head">SYS.ERR</header>
+        <h1 class="code">404</h1>
+        <p class="serif-i text">Llegaste al final de la cinta</p>
+
+        <button @click="router.push({ name: 'home' })" class="btn">
+          REBOBINAR
         </button>
       </div>
     </div>
-
-    <div class="warning-tape bottom"></div>
   </section>
 </template>
 
 <style scoped>
-.not-found {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--niebla);
-  position: relative;
+.ghost {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.warning-tape {
-  height: 20px; /* Thinner */
-  width: 100%;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--arcilla),
-    var(--arcilla) 10px,
-    var(--carbon) 10px,
-    var(--carbon) 20px
-  );
-  border-bottom: 1px solid var(--brillo);
-}
-.warning-tape.bottom { border-bottom: none; border-top: 1px solid var(--brillo); }
-
-.error-console {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 600px;
-  /* CHANGED: 4px border and 15px shadow to 1px glowing wireframe */
-  border: 1px solid var(--lirio);
-  background-color: var(--carbon);
-  box-shadow: 0 0 40px rgba(255, 51, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-}
-
-.console-header {
-  background-color: var(--lirio);
-  color: var(--carbon);
-  padding: 0.5rem 1rem;
-  letter-spacing: 0.1em;
-}
-
-.console-body {
-  padding: 4rem; /* More breathing room */
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-h1 {
+.ew {
+  position: absolute;
   font-family: var(--font-grotesk);
-  font-size: 5rem;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  margin: 0;
-  color: var(--brillo);
-  /* CHANGED: Massive solid glitch to a hyper-realistic optical aberration */
-  text-shadow: -1px 0px 0px var(--lirio), 1px 0px 0px var(--cristal);
-}
-
-.mono {
-  font-family: var(--font-mono);
-  color: var(--humo);
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  margin: 0;
-}
-
-.btn-volver {
-  margin-top: 3rem;
-  padding: 1rem;
-  background-color: transparent;
-  color: var(--cristal);
-  border: 1px solid var(--cristal);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-volver:hover {
-  background-color: var(--cristal);
-  color: var(--carbon);
-  box-shadow: 0 0 15px rgba(0, 85, 255, 0.3);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
 }
 </style>
