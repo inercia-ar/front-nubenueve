@@ -6,7 +6,7 @@
 
 .shop > .foot {
 
-  /* XBOX */ display: flex; justify-content: flex-end; padding-top: 1rem; flex-shrink: 0;
+  /* XBOX */ display: flex; justify-content: flex-end; flex-shrink: 0; padding-top: 1rem;
 
 }
 
@@ -44,8 +44,8 @@
   & h3 {
     
     /* XBOX */ margin: 0;
-    /* TEXT */ font-family: var(--font-grotesk); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1;
     /* HUES */ color: var(--gris-c-SO);
+    /* TEXT */ font-family: var(--font-grotesk); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
   
   }
 

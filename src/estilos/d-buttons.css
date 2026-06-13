@@ -1,7 +1,7 @@
 .text-btn { 
   
   /* XBOX */ display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem;
-  /* HUES */ background: transparent; border: none; color: var(--gris-b-SO);
+  /* HUES */ background: transparent; color: var(--gris-b-SO); border: none;
   /* TEXT */ font-family: var(--font-grotesk); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-decoration: none; text-transform: uppercase;
   /* INTR */ cursor: pointer; transition: all 0.2s ease; &:hover { background: var(--amarillo-SO); color: var(--negro-a-SO); }
 
@@ -10,7 +10,7 @@
 .icon-btn { 
   
   /* XBOX */ display: grid; place-items: center; width: 56px; height: 56px; padding-bottom: 5px;
-  /* HUES */ background: transparent; border: none; color: var(--gris-b-SO);
+  /* HUES */ background: transparent; color: var(--gris-b-SO); border: none;
   /* TEXT */ font-family: var(--font-grotesk); font-size: 2rem;
   /* INTR */ cursor: pointer; transition: all 0.2s ease; &:hover { background: var(--categoria); color: var(--negro-b-SO); border-color: var(--categoria); }
 

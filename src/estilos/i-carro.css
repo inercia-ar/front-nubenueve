@@ -15,6 +15,6 @@
 
 .cart-grid { 
 
-  /* XBOX */ display: flex; flex-direction: column; gap: 1rem; padding: 2rem 0; flex-grow: 1;
+  /* XBOX */ display: flex; flex-direction: column; flex-grow: 1; gap: 1rem; padding: 2rem 0;
 
 }

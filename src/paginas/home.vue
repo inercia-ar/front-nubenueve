@@ -30,7 +30,7 @@ const covers = (() => {
       <router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link>
     </header>
 
-    <div class="midbar">
+    <div class="hero">
       <img src="/assets/emblem.png" class="emblem-icon" alt="" draggable="false">
       <h1 class="headline">
         <span class="line accent">nubenueve</span>

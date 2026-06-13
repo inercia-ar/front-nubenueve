@@ -6,11 +6,11 @@
 
   &::after { 
 
-    /* IMAG */ content: ''; background-image: url('/assets/noise.png'); 
     /* XBOX */ position: fixed; width: 100%; height: 100%; 
     /* HUES */ opacity: .1;
     /* INTR */ pointer-events: none; 
     /* PAGE */ z-index: 9999;
+    /* IMAG */ content: ''; background-image: url('/assets/noise.png'); 
 
   }
 
@@ -19,18 +19,37 @@
 .swatch { 
 
   /* XBOX */ width: 100%; height: 4px; margin-bottom: 1rem;
-    background: linear-gradient(90deg,
-      var(--amarillo-SO) 0%, var(--amarillo-SO) calc(33.333% - 1.5px),
-      transparent calc(33.333% - 1.5px), transparent calc(33.333% + 1.5px),
-      var(--marron-SO) calc(33.333% + 1.5px), var(--marron-SO) calc(66.666% - 1.5px),
-      transparent calc(66.666% - 1.5px), transparent calc(66.666% + 1.5px),
-      var(--azul-a-SO) calc(66.666% + 1.5px), var(--azul-a-SO) 100%
-    );
+  /* HUES */ background: linear-gradient(90deg,
+              var(--amarillo-SO) 0%, var(--amarillo-SO) calc(33.333% - 1.5px),
+              transparent calc(33.333% - 1.5px), transparent calc(33.333% + 1.5px),
+              var(--marron-SO) calc(33.333% + 1.5px), var(--marron-SO) calc(66.666% - 1.5px),
+              transparent calc(66.666% - 1.5px), transparent calc(66.666% + 1.5px),
+              var(--azul-a-SO) calc(66.666% + 1.5px), var(--azul-a-SO) 100%
+             );
   
+}
+
+.topbar { 
+
+  /* XBOX */ display: flex; justify-content: space-between; padding-bottom: 0.75rem; 
+  /* HUES */ color: var(--gris-b-SO); border-bottom: 1px solid var(--gris-b-25);
+  /* TEXT */ font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+  /* PAGE */ z-index: 1; 
+
+}
+
+.botbar { 
+
+  /* XBOX */ display: flex; justify-content: space-between; padding-top: 0.75rem; 
+  /* HUES */ color: var(--gris-b-SO); border-top: 1px solid var(--gris-b-25); 
+  /* TEXT */ font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+  /* PAGE */ z-index: 1;
+
 }
 
 .text-small { color: var(--gris-b-SO); }
 .text-small-centered {  align-self: center; color: var(--gris-b-SO); }
+.serif-i { font-family: var(--font-serif); font-style: italic; }
 
 @media (max-width: 768px) {
 
@@ -39,7 +58,7 @@
   .carro { padding: 1.5rem; }
   .home { padding: 1.5rem; }
   .shop { padding: 1.5rem; }
-  .midbar { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .home .emblem-icon { width: 56px; height: 56px; }
 
   .detalle { padding: 1.5rem; }
