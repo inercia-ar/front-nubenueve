@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useStore } from '../recursos/store.js'
+import { useStore } from '../sistema/store.js'
 
 const route = useRoute()
 const router = useRouter()
@@ -30,7 +30,7 @@ function add() {
 <template>
   <section class="detalle">
     <header class="topbar">
-      <span class="small-text">NUBE NUEVE VOL 1</span>
+      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
       <span class="audio-format min-hide">REF: 00{{ item?.id }}</span>
       <router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link>
     </header>

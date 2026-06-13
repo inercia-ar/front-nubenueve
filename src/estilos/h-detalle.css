@@ -1,0 +1,157 @@
+
+.detalle {
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.detalle .body {
+  flex-grow: 1;
+  display: flex;
+  gap: 4rem;
+  padding: 2rem 0;
+}
+
+.detalle .media {
+  flex-shrink: 0;
+  width: 640px;
+  align-self: flex-start;
+}
+
+.detalle .media .image {
+  width: 640px;
+  height: 640px;
+  object-fit: cover;
+  display: block;
+}
+
+.detalle .gallery {
+  position: relative;
+}
+
+.detalle .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0.5rem;
+  line-height: 1;
+  mix-blend-mode: difference;
+}
+
+.detalle .arrow:hover {
+  color: white;
+}
+
+.detalle .arrow:focus {
+  box-shadow: none;
+}
+
+.detalle .arrow--prev { left: 0; }
+.detalle .arrow--next { right: 0; }
+
+.detalle .dots {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.detalle .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  mix-blend-mode: difference;
+  opacity: 0.5;
+}
+
+.detalle .dot:hover {
+  opacity: 0.8;
+}
+
+.detalle .dot--on {
+  opacity: 1;
+}
+
+.detalle .dot:focus {
+  box-shadow: none;
+}
+
+.detalle .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.detalle .titulo {
+  font-family: var(--font-grotesk);
+  font-size: clamp(6rem, 12vw, 10rem);
+  font-weight: 800;
+  color: var(--brilloSO);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.detalle .meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--humoSO);
+  text-transform: uppercase;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.detalle .desc {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  color: var(--polvoSO);
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.detalle .precio {
+  font-family: var(--font-grotesk);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brilloSO);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.detalle .stock {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--humoSO);
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.detalle .info .btn-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.detalle .info .btn-row .text-btn:first-child {
+  flex-grow: 1;
+}

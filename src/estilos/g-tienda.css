@@ -1,0 +1,52 @@
+/* shop */
+
+.shop {
+  height: 100%; padding: 2.5rem 3rem;
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+
+.shop-grid { 
+  display: grid; grid-template-columns: repeat(2, 1fr); flex-grow: 1;
+  gap: 1.5rem; padding-top: 2rem;
+  align-content: start;
+  & > .card--long { grid-column: span 2; }
+}
+
+.card {
+  display: flex; flex-wrap: wrap; position: relative;
+  background: var(--carbonSO); border: 1px solid var(--humo15);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  &:hover { background: var(--ceniza99); box-shadow: 0 4px 16px rgba(0,0,0,0.3); cursor: pointer; transform: translateY(-2px); }
+  &::before { content: ''; width: 100%; height: 3px; background: var(--categoria); flex: 0 0 100%; }
+  &.is-empty { opacity: 0.3; filter: grayscale(1); --categoria: var(--humoSO); pointer-events: none; & .content { flex: 0 0 100%;} }
+  & .image { object-fit: cover; flex-shrink: 0; width: 320px; height: 320px; margin: 1.5rem 0 1.5rem 1.5rem; }
+  & .content { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  & .tag { font-size: 1.3rem; letter-spacing: 0.2em; color: var(--polvoSO); }
+  & .body { padding: 2.5rem 2rem; flex-grow: 1; display: flex; flex-direction: column; gap: 1.5rem; }
+  & .specs { display: flex; align-items: center; gap: 1rem; font-size: 1.5rem; letter-spacing: 0.25em; color: var(--humoSO); text-transform: uppercase; }
+  & .divider { color: var(--humo25); }
+  & .foot { display: flex; align-items: center; padding: 1.5rem 2rem; border-top: 1px solid var(--humo10); gap: 1.5rem; }
+  & .price { font-family: var(--font-grotesk); font-size: 2rem; font-weight: 600; color: var(--brilloSO); margin-right: auto; }
+
+  & .head { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; border-bottom: 1px solid var(--humo10);
+    &::after { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; margin-right: 25px; background: var(--categoria); }
+  }
+
+  & h3 {
+    font-family: var(--font-grotesk); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: -0.02em; text-transform: uppercase;
+    color: var(--brilloSO); margin: 0; line-height: 1;
+  }
+
+}
+
+.card--0 { --categoria: var(--arcillaSO); }
+.card--1 { --categoria: var(--cristalSO); }
+.card--2 { --categoria: var(--lirioSO); }
+.card--3 { --categoria: var(--pomaSO); }
+
+.shop > .foot {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  flex-shrink: 0;
+}

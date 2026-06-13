@@ -1,0 +1,41 @@
+:root { 
+
+  --font-main:    'Outfit',           sans-serif;
+  --font-serif:   'DM Serif Display', serif;
+  --font-mono:    'Inconsolata',      monospace;
+  --font-grotesk: 'Inter',            sans-serif;
+
+  --animate-0: 0.00s ease; --animate-1:  1.00s ease; --animate-2:  2.00s ease; --animate-3: 3.00s ease;
+  --animate-a: 0.10s ease; --animate-h:  1.10s ease; --animate-ñ:  2.10s ease; --animate-u: 3.10s ease;
+  --animate-b: 0.25s ease; --animate-i:  1.25s ease; --animate-o:  2.25s ease; --animate-v: 3.25s ease;
+  --animate-c: 0.35s ease; --animate-j:  1.35s ease; --animate-p:  2.35s ease; --animate-w: 3.35s ease;
+  --animate-d: 0.50s ease; --animate-k:  1.50s ease; --animate-q:  2.50s ease; --animate-x: 3.50s ease;
+  --animate-e: 0.65s ease; --animate-l:  1.65s ease; --animate-r:  2.65s ease; --animate-y: 3.65s ease;
+  --animate-f: 0.75s ease; --animate-m:  1.75s ease; --animate-s:  2.75s ease; --animate-z: 3.75s ease;
+  --animate-g: 0.90s ease; --animate-n:  1.90s ease; --animate-t:  2.90s ease;
+
+  --nieblaSO: #080807  ; --carbonSO:  #151413  ; --cenizaSO:  #242220  ; --humoSO: #4A4743  ; --polvoSO:   #A39E98  ; --brilloSO: #F5F2EB  ;
+  --niebla05: #08080705; --carbon05:  #15141305; --ceniza05:  #24222005; --humo05: #4A474305; --polvo05:   #A39E9805; --brillo05: #F5F2EB05;
+  --niebla10: #08080710; --carbon10:  #15141310; --ceniza10:  #24222010; --humo10: #4A474310; --polvo10:   #A39E9810; --brillo10: #F5F2EB10;
+  --niebla15: #08080715; --carbon15:  #15141315; --ceniza15:  #24222015; --humo15: #4A474315; --polvo15:   #A39E9815; --brillo15: #F5F2EB15;
+  --niebla25: #08080725; --carbon25:  #15141325; --ceniza25:  #24222025; --humo25: #4A474325; --polvo25:   #A39E9825; --brillo25: #F5F2EB25;
+  --niebla35: #08080735; --carbon35:  #15141335; --ceniza35:  #24222035; --humo35: #4A474335; --polvo35:   #A39E9835; --brillo35: #F5F2EB35;
+  --niebla50: #08080750; --carbon50:  #15141350; --ceniza50:  #24222050; --humo50: #4A474350; --polvo50:   #A39E9850; --brillo50: #F5F2EB50;
+  --niebla65: #08080765; --carbon65:  #15141365; --ceniza65:  #24222065; --humo65: #4A474365; --polvo65:   #A39E9865; --brillo65: #F5F2EB65;
+  --niebla80: #08080780; --carbon80:  #15141380; --ceniza80:  #24222080; --humo80: #4A474380; --polvo80:   #A39E9880; --brillo80: #F5F2EB80;
+  --niebla90: #08080790; --carbon90:  #15141390; --ceniza90:  #24222090; --humo90: #4A474390; --polvo90:   #A39E9890; --brillo90: #F5F2EB90;
+  --niebla99: #08080799; --carbon99:  #15141399; --ceniza99:  #24222099; --humo99: #4A474399; --polvo99:   #A39E9899; --brillo99: #F5F2EB99;
+
+  --lirioSO:  #8B5E4A  ; --cristalSO: #4A6B7A  ; --arcillaSO: #9B8245  ; --pomaSO: #6B7A55  ; --violetaSO: #7A5A6B  ; --cieloSO:  #5A7A7A  ;
+  --lirio05:  #8B5E4A05; --cristal05: #4A6B7A05; --arcilla05: #9B824505; --poma05: #6B7A5505; --violeta05: #7A5A6B05; --cielo05:  #5A7A7A05;
+  --lirio10:  #8B5E4A10; --cristal10: #4A6B7A10; --arcilla10: #9B824510; --poma10: #6B7A5510; --violeta10: #7A5A6B10; --cielo10:  #5A7A7A10;
+  --lirio15:  #8B5E4A15; --cristal15: #4A6B7A15; --arcilla15: #9B824515; --poma15: #6B7A5515; --violeta15: #7A5A6B15; --cielo15:  #5A7A7A15;
+  --lirio25:  #8B5E4A25; --cristal25: #4A6B7A25; --arcilla25: #9B824525; --poma25: #6B7A5525; --violeta25: #7A5A6B25; --cielo25:  #5A7A7A25;
+  --lirio35:  #8B5E4A35; --cristal35: #4A6B7A35; --arcilla35: #9B824535; --poma35: #6B7A5535; --violeta35: #7A5A6B35; --cielo35:  #5A7A7A35;
+  --lirio50:  #8B5E4A50; --cristal50: #4A6B7A50; --arcilla50: #9B824550; --poma50: #6B7A5550; --violeta50: #7A5A6B50; --cielo50:  #5A7A7A50;
+  --lirio65:  #8B5E4A65; --cristal65: #4A6B7A65; --arcilla65: #9B824565; --poma65: #6B7A5565; --violeta65: #7A5A6B65; --cielo65:  #5A7A7A65;
+  --lirio80:  #8B5E4A80; --cristal80: #4A6B7A80; --arcilla80: #9B824580; --poma80: #6B7A5580; --violeta80: #7A5A6B80; --cielo80:  #5A7A7A80;
+  --lirio90:  #8B5E4A90; --cristal90: #4A6B7A90; --arcilla90: #9B824590; --poma90: #6B7A5590; --violeta90: #7A5A6B90; --cielo90:  #5A7A7A90;
+  --lirio99:  #8B5E4A99; --cristal99: #4A6B7A99; --arcilla99: #9B824599; --poma99: #6B7A5599; --violeta99: #7A5A6B99; --cielo99:  #5A7A7A99;
+
+}

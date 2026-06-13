@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { useStore } from '../recursos/store.js'
+import { useStore } from '../sistema/store.js'
 
 const router = useRouter()
 const store = useStore()
@@ -13,12 +13,12 @@ function goItem(id) {
 <template>
   <section class="carro">
     <header class="topbar">
-      <span class="small-text">NUBE NUEVE VOL 1</span>
+      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
       <span class="audio-format min-hide">{{ store.cart.length }} ARTÍCULOS</span>
       <span class="audio-format">TOTAL: ${{ store.cartTotal.toLocaleString() }}</span>
     </header>
 
-    <div v-if="store.cart.length" class="grid">
+    <div v-if="store.cart.length" class="cart-grid">
       <article
         v-for="(c, index) in store.cart"
         :key="c.id"

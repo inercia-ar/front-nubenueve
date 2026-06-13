@@ -1,0 +1,11 @@
+@layer tokens, reset, utilities, buttons, home, error, tienda, detalle, carro;
+
+@import "./a-tokens.css"    layer(tokens);
+@import "./b-reset.css"     layer(reset);
+@import "./c-utilities.css" layer(utilities);
+@import "./d-buttons.css"   layer(buttons);
+@import "./e-home.css"      layer(home);
+@import "./f-error.css"     layer(error);
+@import "./g-tienda.css"    layer(tienda);
+@import "./h-detalle.css"   layer(detalle);
+@import "./i-carro.css"     layer(carro);

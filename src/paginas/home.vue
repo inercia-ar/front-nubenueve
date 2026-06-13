@@ -1,5 +1,5 @@
 <script setup>
-import { useStore } from '../recursos/store.js'
+import { useStore } from '../sistema/store.js'
 
 const store = useStore()
 
@@ -25,16 +25,13 @@ const covers = (() => {
   <section class="home">
 
     <header class="topbar">
-      <span class="small-text">NUBE NUEVE VOL 1</span>
-      <span class="small-text min-hide">ALTA FIDELIDAD · STEREO</span>
+      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
+      <span class="text-small-centered min-hide">ALTA FIDELIDAD · STEREO</span>
       <router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link>
     </header>
 
-    <div class="title">
-      <div class="emblem-icon">
-        <div class="emblem-dot" v-for="n in 12" :key="n" :style="{ transform: `rotate(${n * 30}deg) translateY(-14px)` }"></div>
-      </div>
-
+    <div class="midbar">
+      <img src="/assets/emblem.png" class="emblem-icon" alt="" draggable="false">
       <h1 class="headline">
         <span class="line accent">nubenueve</span>
         <span class="line">musica tangible</span>
@@ -44,7 +41,7 @@ const covers = (() => {
     <div class="swatch"></div>
 
     <div class="botbar">
-      <div class="small-text">VINILOS 33 1/3 · CINTAS DE CASETTE · CDs · ALTA PRECISIÓN</div>
+      <div class="text-small-centered">VINILOS 33 1/3 · CINTAS DE CASETTE · CDs · ALTA PRECISIÓN</div>
       <router-link :to="{ name: 'tienda' }" class="text-btn">EXPLORAR ARCHIVO</router-link>
     </div>
 
