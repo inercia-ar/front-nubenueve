@@ -26,14 +26,14 @@ function goItem(id) {
         :class="`card--${index % 4}`"
         @click="goItem(c.id)"
       >
-        <img class="image" :src="c.image" :alt="c.name" loading="lazy">
+        <img class="thumb" :src="c.image" :alt="c.name" loading="lazy">
 
         <div class="content">
-          <div class="head">
+          <div class="label">
             <span class="tag ">IDX-00{{ c.id }}</span>
           </div>
 
-          <div class="body">
+          <div class="core">
             <h3>{{ c.name }}</h3>
             <div class="tag">
               <span>x{{ c.quantity }} UND</span>
@@ -42,7 +42,7 @@ function goItem(id) {
             </div>
           </div>
 
-          <div class="foot">
+          <div class="actions">
             <div class="price">${{ c.price.toLocaleString() }}</div>
             <button class="icon-btn" @click.stop="store.removeFromCart(c.id)" title="Eliminar">✕</button>
           </div>
@@ -54,7 +54,7 @@ function goItem(id) {
       <p class="serif-i">El carro está vacío</p>
     </div>
 
-    <div class="foot">
+    <div class="nav">
       <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
     </div>
   </section>

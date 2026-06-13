@@ -35,10 +35,10 @@ function add() {
       <router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link>
     </header>
 
-    <div v-if="item" class="body">
+    <div v-if="item" class="main">
       <div class="media">
         <div class="gallery">
-          <img class="image" :src="item.imagenes[currentIdx]" :alt="item.disco" :key="currentIdx">
+          <img class="shot" :src="item.imagenes[currentIdx]" :alt="item.disco" :key="currentIdx">
           <button class="arrow arrow--prev" @click="prev">‹</button>
           <button class="arrow arrow--next" @click="next">›</button>
           <div v-if="item.imagenes.length > 1" class="dots">
@@ -67,7 +67,7 @@ function add() {
       </div>
     </div>
 
-    <div v-else class="body">
+    <div v-else class="main">
       <p class="serif-i">Artículo no encontrado</p>
     </div>
   </section>

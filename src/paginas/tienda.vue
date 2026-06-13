@@ -25,14 +25,14 @@ function goItem(id) {
         :class="[`card--${index % 4}`, { 'card--long': item.formato === 'box' || item.formato === 'cinta' }]"
         @click="goItem(item.id)"
       >
-        <img class="image" :src="item.imagenes[0]" :alt="item.disco" loading="lazy">
+        <img class="thumb" :src="item.imagenes[0]" :alt="item.disco" loading="lazy">
 
         <div class="content">
-          <div class="head">
+          <div class="label">
             <span class="tag">IDX-00{{ item.id }}</span>
           </div>
 
-          <div class="body">
+          <div class="core">
             <h3>{{ item.disco }}</h3>
             <div class="tag">
               <span>{{ item.formato.toUpperCase() }}</span>
@@ -41,7 +41,7 @@ function goItem(id) {
             </div>
           </div>
 
-          <div class="foot">
+          <div class="actions">
             <div class="price">${{ item.precio }}</div>
             <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
           </div>
@@ -50,18 +50,18 @@ function goItem(id) {
       
       <article class="card is-empty">
         <div class="content">
-          <div class="head">
+          <div class="label">
             <span class="tag">VACÍO</span>
           </div>
-          <div class="body">
+          <div class="core">
             <h3>NO DATA</h3>
           </div>
-          <div class="foot"></div>
+          <div class="actions"></div>
         </div>
       </article>
     </div>
 
-    <div class="foot">
+    <div class="nav">
       <router-link :to="{ name: 'home' }" class="text-btn">VOLVER</router-link>
     </div>
   </section>
