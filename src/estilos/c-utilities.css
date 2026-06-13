@@ -1,43 +1,57 @@
-.noise        { display: flex; flex-direction: column; background-color: var(--nieblaSO); min-height: 100vh; user-select: none; -webkit-user-select: none; }
-.noise::after { content: ''; background-image: url('/assets/noise.png'); position: fixed; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: .1; }
+.noise { 
+
+  /* XBOX */ display: flex; flex-direction: column; min-height: 100vh;
+  /* HUES */ background-color: var(--negro-a-SO);
+  /* INTR */ user-select: none; -webkit-user-select: none;
+
+  &::after { 
+
+    /* IMAG */ content: ''; background-image: url('/assets/noise.png'); 
+    /* XBOX */ position: fixed; width: 100%; height: 100%; 
+    /* HUES */ opacity: .1;
+    /* INTR */ pointer-events: none; 
+    /* PAGE */ z-index: 9999;
+
+  }
+
+}
 
 .swatch { 
 
   /* XBOX */ width: 100%; height: 4px; margin-bottom: 1rem;
     background: linear-gradient(90deg,
-      var(--arcillaSO) 0%, var(--arcillaSO) calc(33.333% - 1.5px),
+      var(--amarillo-SO) 0%, var(--amarillo-SO) calc(33.333% - 1.5px),
       transparent calc(33.333% - 1.5px), transparent calc(33.333% + 1.5px),
-      var(--lirioSO) calc(33.333% + 1.5px), var(--lirioSO) calc(66.666% - 1.5px),
+      var(--marron-SO) calc(33.333% + 1.5px), var(--marron-SO) calc(66.666% - 1.5px),
       transparent calc(66.666% - 1.5px), transparent calc(66.666% + 1.5px),
-      var(--cristalSO) calc(66.666% + 1.5px), var(--cristalSO) 100%
+      var(--azul-a-SO) calc(66.666% + 1.5px), var(--azul-a-SO) 100%
     );
   
 }
 
-.text-small { color: var(--polvoSO); }
-.text-small-centered {  align-self: center; color: var(--polvoSO); }
-
-@media (max-width: 768px) { .min-hide { display: none; } }
+.text-small { color: var(--gris-b-SO); }
+.text-small-centered {  align-self: center; color: var(--gris-b-SO); }
 
 @media (max-width: 768px) {
+
+  .min-hide { display: none; }
+
   .carro { padding: 1.5rem; }
   .home { padding: 1.5rem; }
+  .shop { padding: 1.5rem; }
   .midbar { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .home .emblem-icon { width: 56px; height: 56px; }
-}
 
-@media (max-width: 768px) {
   .detalle { padding: 1.5rem; }
   .detalle .body { flex-direction: column; gap: 2rem; }
   .detalle .media,
   .detalle .media .image { width: 100%; max-width: 640px; }
+
 }
 
 @media (max-width: 900px) {
+
   .shop-grid { grid-template-columns: 1fr; }
   .shop-grid > .card--long { grid-column: span 1; }
-}
-
-@media (max-width: 768px) {
-  .shop { padding: 1.5rem; }
+  
 }

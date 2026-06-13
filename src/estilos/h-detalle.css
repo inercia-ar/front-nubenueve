@@ -100,7 +100,7 @@
   font-family: var(--font-grotesk);
   font-size: clamp(6rem, 12vw, 10rem);
   font-weight: 800;
-  color: var(--brilloSO);
+  color: var(--gris-c-SO);
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -113,7 +113,7 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.25em;
-  color: var(--humoSO);
+  color: var(--gris-a-SO);
   text-transform: uppercase;
   user-select: text;
   -webkit-user-select: text;
@@ -121,7 +121,7 @@
 
 .detalle .desc {
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  color: var(--polvoSO);
+  color: var(--gris-b-SO);
   line-height: 1.5;
   margin: 0;
   flex-grow: 1;
@@ -133,7 +133,7 @@
   font-family: var(--font-grotesk);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--brilloSO);
+  color: var(--gris-c-SO);
   user-select: text;
   -webkit-user-select: text;
 }
@@ -141,7 +141,7 @@
 .detalle .stock {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
-  color: var(--humoSO);
+  color: var(--gris-a-SO);
   user-select: text;
   -webkit-user-select: text;
 }
