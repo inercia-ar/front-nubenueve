@@ -17,9 +17,22 @@ function goItem(id) {
       <router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link>
     </header>
 
+    <div class="filtros">
+      <select v-model="store.artistFilter" class="text-btn">
+        <option value="">TODOS LOS ARTISTAS</option>
+        <option v-for="a in store.artists" :key="a" :value="a">{{ a }}</option>
+      </select>
+
+      <button class="text-btn" @click="store.sortDir = store.sortDir === 'asc' ? 'desc' : 'asc'">
+        {{ store.sortDir === 'asc' ? '▲ ASC' : '▼ DES' }}
+      </button>
+
+      <router-link :to="{ name: 'home' }" class="text-btn" style="margin-left: auto">VOLVER</router-link>
+    </div>
+
     <div class="shop-grid">
       <article 
-        v-for="(item, index) in store.mock" 
+        v-for="(item, index) in store.filteredList" 
         :key="item.id" 
         class="card" 
         :class="[`card--${index % 4}`, { 'card--long': item.formato === 'box' || item.formato === 'cinta' }]"
@@ -59,10 +72,6 @@ function goItem(id) {
           <div class="actions"></div>
         </div>
       </article>
-    </div>
-
-    <div class="nav">
-      <router-link :to="{ name: 'home' }" class="text-btn">VOLVER</router-link>
     </div>
   </section>
 </template>

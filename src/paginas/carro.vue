@@ -50,10 +50,6 @@ function goItem(id) {
       </article>
     </div>
 
-    <div v-else class="vacio">
-      <p class="serif-i">El carro está vacío</p>
-    </div>
-
     <div class="nav">
       <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
     </div>
