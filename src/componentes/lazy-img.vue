@@ -21,5 +21,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <img :ref="el" :src="loaded ? src : undefined" :alt="alt" v-bind="$attrs">
+  <img ref="el" :src="loaded ? src : undefined" :alt="alt" v-bind="$attrs">
 </template>
