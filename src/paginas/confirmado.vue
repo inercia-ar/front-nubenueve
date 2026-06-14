@@ -8,14 +8,14 @@ const router = useRouter()
 <template>
 
   <Notification
-    word1="SEÑAL"
-    word2="PERDIDA"
-    header="SYS.ERR"
-    code="404"
-    message="Llegaste al final de la cinta"
+    word1="PEDIDO"
+    word2="CONFIRMADO"
+    header="EXITO"
+    code="200"
+    message="Tu pedido fue registrado correctamente"
   >
     <template #action>
-      <button @click="router.push({ name: 'home' })" class="text-btn">REBOBINAR</button>
+      <button @click="router.push({ name: 'tienda' })" class="text-btn">VOLVER A TIENDA</button>
     </template>
   </Notification>
 

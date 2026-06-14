@@ -4,14 +4,16 @@ import error from '../paginas/error.vue'
 import tienda from '../paginas/tienda.vue'
 import item from '../paginas/item.vue'
 import carro from '../paginas/carro.vue'
+import confirmado from '../paginas/confirmado.vue'
 
 const routes = [
 
-  { path: '/',              name: 'home',   component: home    },
-  { path: '/tienda',        name: 'tienda', component: tienda  },
-  { path: '/item/:id',      name: 'item',   component: item    },
-  { path: '/carro',         name: 'carro',  component: carro   },
-  { path: '/:catchAll(.*)', name: 'error',  component: error   },
+  { path: '/',              name: 'home',       component: home       },
+  { path: '/tienda',        name: 'tienda',     component: tienda     },
+  { path: '/item/:id',      name: 'item',       component: item       },
+  { path: '/carro',         name: 'carro',      component: carro      },
+  { path: '/confirmado',    name: 'confirmado', component: confirmado },
+  { path: '/:catchAll(.*)', name: 'error',      component: error      },
 
 ]
 

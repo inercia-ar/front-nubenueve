@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from '../sistema/store.js'
+import Topbar from '../componentes/topbar.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -33,11 +34,10 @@ function add() {
 
 <template>
   <section class="detalle">
-    <header class="topbar">
-      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
-      <span class="audio-format min-hide">REF: 00{{ item?.id }}</span>
-      <router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link>
-    </header>
+    <Topbar>
+      <template #center><span class="audio-format min-hide">REF: 00{{ item?.id }}</span></template>
+      <template #right><router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link></template>
+    </Topbar>
 
     <div v-if="item" class="main">
       <div class="media">
@@ -66,7 +66,7 @@ function add() {
 
         <div class="btn-row">
           <button class="text-btn" @click="add">AÑADIR AL CARRO</button>
-          <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
+          <button @click="router.back()" class="text-btn">VOLVER</button>
         </div>
       </div>
     </div>

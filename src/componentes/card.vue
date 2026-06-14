@@ -22,16 +22,18 @@ defineEmits(['click'])
 
     <div class="content">
 
-      <div class="label"> <span class="tag">IDX-00{{ id }}</span> </div>
+      <div class="card-body">
 
-      <div class="core">
-        <h3>{{ title }}</h3>
-        <div class="tag"> <slot name="specs" /> </div>
-      </div>
-      
-      <div class="actions">
-        <div class="price">{{ price }}</div>
-        <slot name="action" />
+        <div class="label"> <span class="tag">IDX-00{{ id }}</span> </div>
+
+        <div class="core">
+          <h3>{{ title }}</h3>
+          <div class="tag"> <slot name="specs" /> </div>
+        </div>
+
+        <div v-if="price" class="price">{{ price }}</div>
+        <div class="actions"> <slot name="action" /> </div>
+
       </div>
 
     </div>

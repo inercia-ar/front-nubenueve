@@ -45,7 +45,7 @@ function toggleDir() {
     <template v-for="f in filters" :key="f">
 
       <select v-if="f === 'artist'" v-model="store.artistFilter" class="text-btn">
-        <option value="">TODOS LOS ARTISTAS</option>
+        <option value="">COMPLETO</option>
         <option v-for="a in store.artists" :key="a" :value="a">{{ a }}</option>
       </select>
 
@@ -55,13 +55,14 @@ function toggleDir() {
           <option v-for="opt in sortOptions" :key="opt.value" :value="opt.value">{{ opt.label }}</option>
         </select>
 
-        <button class="text-btn" @click="toggleDir"> {{ sortDir === 'asc' ? '▲ ASC' : '▼ DES' }} </button>
+        <button class="text-btn" @click="toggleDir"> {{ sortDir === 'asc' ? '↑' : '↓' }} </button>
 
       </template>
 
     </template>
 
     <router-link v-if="volverTo" :to="{ name: volverTo }" class="text-btn" style="margin-left: auto">VOLVER</router-link>
+    <slot name="right" />
 
   </div>
 

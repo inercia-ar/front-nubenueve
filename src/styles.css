@@ -159,6 +159,7 @@ a {
 
 }
 
+
 .top-btn {
 
   /* XBOX */ position: fixed; bottom: 3rem; right: 3rem; z-index: 100;
@@ -235,15 +236,19 @@ a {
   
 }
 
-/* ERROR ---------------------------------------------------------------------------------------------------------- */
+/* NOTIFICATION ---------------------------------------------------------------------------------------------------- */
 
-.error { 
+.notification { 
 
   /* XBOX */ display: flex; flex-direction: column; flex-grow: 1; align-items: center; justify-content: center; gap: 2rem; padding: 2rem; overflow: hidden;
   /* HUES */ background: var(--negro-a-SO);
   /* PAGE */ position: relative;
   
 }
+
+.n-ghost { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+.nw { position: absolute; font-family: var(--font-grotesk); font-weight: 700; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.04em; line-height: 0.8; }
 
 .code {
   
@@ -277,7 +282,7 @@ a {
 
 .header { 
 
-  /* HUES */ color: var(--gris-a-SO);
+  /* HUES */ color: var(--gris-b-SO);
   /* TEXT */ font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
 
 }
@@ -340,7 +345,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 .thumb {
 
-  /* XBOX */ flex-shrink: 0; width: 320px; height: 320px; margin: 1.5rem 0 1.5rem 1.5rem;
+  /* XBOX */ flex-shrink: 0; width: 320px; height: 320px; padding: 1.5rem;
   /* IMAG */ object-fit: cover;
 
 }
@@ -351,9 +356,16 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 }
 
+.card-body {
+
+  /* XBOX */ display: flex; flex-direction: column; padding: 1.5rem 1.5rem 1.5rem 0rem; justify-content: space-between;
+  /* PAGE */ flex: 1; position: relative;
+
+}
+
 .label {
 
-  /* XBOX */ display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem;
+  /* XBOX */ display: flex; justify-content: space-between; align-items: center;
   /* HUES */ border-bottom: 1px solid var(--gris-a-10);
 
   &::after {
@@ -375,26 +387,28 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 .core {
 
-  /* XBOX */ display: flex; flex-direction: column; flex-grow: 1; gap: 1.5rem; padding: 2.5rem 2rem;
+  /* XBOX */ display: flex; flex-direction: column; gap: 1.5rem;
 
 }
 
 .divider { color: var(--gris-a-25); }
 
-.actions {
-
-  /* XBOX */ display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 2rem;
-  /* HUES */ border-top: 1px solid var(--gris-a-10);
-
-}
-
 .price {
 
-  /* XBOX */ margin-right: auto;
-  /* HUES */ color: var(--gris-c-SO);
+  /* XBOX */ display: flex; align-items: center; padding: 1.5rem 0 0;
+  /* HUES */ color: var(--gris-c-SO); border-top: 1px solid var(--gris-a-10);
   /* TEXT */ font-family: var(--font-grotesk); font-size: 2rem; font-weight: 600;
 
 }
+
+.actions {
+
+  /* XBOX */ display: flex; align-items: center; gap: 1.5rem;
+  /* PAGE */ position: absolute; bottom: 1.5rem; right: 1.5rem;
+
+}
+
+.carro .actions { flex-direction: column; gap: 0; }
 
 .card--0 { --categoria: var(--amarillo-SO); }
 .card--1 { --categoria: var(--azul-a-SO);   }
@@ -411,7 +425,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 .main {
 
-  /* XBOX */ display: flex; flex-grow: 1; gap: 4rem; padding: 2rem 0;
+  /* XBOX */ display: flex; flex-grow: 1; gap: 3rem; padding: 2rem 0;
 
 }
 
@@ -533,14 +547,91 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 }
 
+
+/* CHECKOUT ------------------------------------------------------------------------------------------------------- */
+
+.checkout-overlay {
+
+  /* XBOX */ display: flex; align-items: center; justify-content: center; position: fixed; inset: 0; z-index: 1000;
+  /* HUES */ background: rgba(0,0,0,0.6);
+
+}
+
+.checkout-panel {
+
+  /* XBOX */ display: flex; flex-direction: column; width: 100%; max-width: 500px; max-height: 90vh; padding: 2rem; overflow-y: auto;
+  /* HUES */ background: var(--negro-b-SO); border: 1px solid var(--gris-a-15);
+  /* PAGE */ position: relative;
+
+}
+
+.checkout-close {
+
+  /* PAGE */ position: absolute; top: 0; right: 0;
+
+}
+
+.checkout-title {
+
+  /* XBOX */ margin: 0 0 1.5rem;
+  /* HUES */ color: var(--amarillo-SO);
+  /* TEXT */ font-family: var(--font-grotesk); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+
+}
+
+.checkout-form {
+
+  /* XBOX */ display: flex; flex-direction: column; gap: 1rem;
+
+}
+
+.checkout-field {
+
+  /* XBOX */ display: flex; flex-direction: column; gap: 0.25rem;
+
+}
+
+.checkout-label {
+
+  /* HUES */ color: var(--gris-b-SO);
+  /* TEXT */ font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+
+}
+
+.checkout-input {
+
+  /* XBOX */ padding: 0.6rem 0.75rem;
+  /* HUES */ background: transparent; color: var(--gris-c-SO); border: 1px solid var(--gris-a-50);
+  /* TEXT */ font-family: var(--font-grotesk); font-size: 0.9rem;
+  /* INTR */ transition: border-color 0.2s ease;
+
+  &:focus { outline: none; border-color: var(--amarillo-SO); }
+
+  &.input--err { border-color: var(--marron-SO); }
+
+}
+
+.checkout-err {
+
+  /* HUES */ color: var(--marron-SO);
+  /* TEXT */ font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+
+}
+
+.checkout-submit {
+
+  /* XBOX */ justify-content: center; margin-top: 0.5rem;
+
+}
+
 /* QUERIES -------------------------------------------------------------------------------------------------------- */
 
 @media (max-width: 768px) {
 
   .min-hide { display: none;   }
-  .carro    { padding: 1.5rem; }
-  .home     { padding: 1.5rem; }
-  .shop     { padding: 1.5rem; }
+
+
+  .topbar { grid-template-columns: 1fr 1fr;}
 
   .hero     { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 

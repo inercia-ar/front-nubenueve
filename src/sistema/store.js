@@ -67,6 +67,23 @@ export const useStore = defineStore('store', () => {
     updateCart(cart.value)
   }
 
-  return { mock, cart, cartCount, cartTotal, getItem, addToCart, removeFromCart, artistFilter, sortBy, sortDir, artists, filteredList, cartSortBy, cartSortDir, sortedCart }
+  function incrementQuantity(itemId) {
+    const item = cart.value.find(c => c.id === itemId)
+    if (item) { item.quantity++; updateCart(cart.value) }
+  }
+
+  function decrementQuantity(itemId) {
+    const item = cart.value.find(c => c.id === itemId)
+    if (!item) return
+    if (item.quantity <= 1) removeFromCart(itemId)
+    else { item.quantity--; updateCart(cart.value) }
+  }
+
+  function clearCart() {
+    cart.value = []
+    updateCart(cart.value)
+  }
+
+  return { mock, cart, cartCount, cartTotal, getItem, addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart, artistFilter, sortBy, sortDir, artists, filteredList, cartSortBy, cartSortDir, sortedCart }
 
 })
