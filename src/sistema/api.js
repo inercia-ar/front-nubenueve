@@ -25,7 +25,6 @@ const cartURL = '' /* CAMBIAR CARTURL A API BACKEND HACE OVERRIDE A LOCALSTORAGE
 
 */
 
-
 function normalizeProduct(raw) {
   return {
     id:          raw.id,

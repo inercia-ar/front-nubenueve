@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router'
 import { useStore } from '../sistema/store.js'
 import Topbar from '../componentes/topbar.vue'
+import Card from '../componentes/card.vue'
 import Footer from '../componentes/footer.vue'
 const router = useRouter()
 const store = useStore()
@@ -32,36 +33,24 @@ function goItem(id) {
     </div>
 
     <div class="shop-grid">
-      <article 
-        v-for="(item, index) in store.filteredList" 
-        :key="item.id" 
-        class="card" 
-        :class="[`card--${index % 4}`, { 'card--long': item.formato === 'box' || item.formato === 'cinta' }]"
+      <Card
+        v-for="(item, index) in store.filteredList"
+        :key="item.id"
+        :id="item.id" :index="index"
+        :thumb="item.imagenes[0]" :alt="item.disco" :title="item.disco"
+        :price="'$' + item.precio"
+        :long="item.formato === 'box' || item.formato === 'cinta'"
         @click="goItem(item.id)"
       >
-        <img class="thumb" :src="item.imagenes[0]" :alt="item.disco" loading="lazy">
-
-        <div class="content">
-          <div class="label">
-            <span class="tag">IDX-00{{ item.id }}</span>
-          </div>
-
-          <div class="core">
-            <h3>{{ item.disco }}</h3>
-            <div class="tag">
-              <span>{{ item.formato.toUpperCase() }}</span>
-              <span class="divider">|</span>
-              <span>STOCK {{ item.stock }}</span>
-            </div>
-          </div>
-
-          <div class="actions">
-            <div class="price">${{ item.precio }}</div>
-            <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
-          </div>
-        </div>
-
-      </article>
+        <template #specs>
+          <span>{{ item.formato.toUpperCase() }}</span>
+          <span class="divider">|</span>
+          <span>STOCK {{ item.stock }}</span>
+        </template>
+        <template #action>
+          <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
+        </template>
+      </Card>
 
     </div>
 

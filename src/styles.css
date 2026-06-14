@@ -139,12 +139,6 @@ a {
 .text-small-centered {  align-self: center; color: var(--gris-b-SO); }
 .serif-i { font-family: var(--font-serif); font-style: italic; }
 
-.nav {
-
-  /* XBOX */ display: flex; justify-content: flex-end; flex-shrink: 0; padding-top: 1rem;
-
-}
-
 /* BUTTONS -------------------------------------------------------------------------------------------------------- */
 
 .text-btn { 
@@ -385,14 +379,6 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 }
 
-.specs {
-
-  /* XBOX */ display: flex; align-items: center; gap: 1rem;
-  /* HUES */ color: var(--gris-a-SO);
-  /* TEXT */ font-size: 1.5rem; letter-spacing: 0.25em; text-transform: uppercase;
-
-}
-
 .divider { color: var(--gris-a-25); }
 
 .actions {
@@ -538,8 +524,6 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 .carro {
 
   /* XBOX */ display: flex; flex-direction: column; height: 100%; padding: 2.5rem 3rem; overflow-y: auto;
-  
-  & .card h3 { font-size: clamp(1rem, 1.5vw, 1.25rem); & .specs { font-size: 0.65rem; }   }
 
 }
 
