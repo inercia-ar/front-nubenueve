@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from '../sistema/store.js'
 
@@ -7,22 +7,26 @@ const route = useRoute()
 const router = useRouter()
 const store = useStore()
 
-const item = store.getItem(route.params.id)
+const item = computed(() => store.getItem(route.params.id))
+
+watch(() => store.mock.length, (len) => {
+  if (len && !item.value) router.replace('/404')
+}, { immediate: true })
 const currentIdx = ref(0)
 
 function prev() {
-  if (!item) return
-  currentIdx.value = (currentIdx.value - 1 + item.imagenes.length) % item.imagenes.length
+  if (!item.value) return
+  currentIdx.value = (currentIdx.value - 1 + item.value.imagenes.length) % item.value.imagenes.length
 }
 
 function next() {
-  if (!item) return
-  currentIdx.value = (currentIdx.value + 1) % item.imagenes.length
+  if (!item.value) return
+  currentIdx.value = (currentIdx.value + 1) % item.value.imagenes.length
 }
 
 function add() {
-  if (!item) return
-  store.addToCart(item.id)
+  if (!item.value) return
+  store.addToCart(item.value.id)
   router.push({ name: 'carro' })
 }
 </script>
@@ -67,8 +71,6 @@ function add() {
       </div>
     </div>
 
-    <div v-else class="main">
-      <p class="serif-i">Artículo no encontrado</p>
-    </div>
+    <div v-if="!store.mock.length" class="main"></div>
   </section>
 </template>

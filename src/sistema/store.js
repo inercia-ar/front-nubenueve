@@ -11,20 +11,45 @@ export const useStore = defineStore('store', () => {
   fetchCart().then(data => { cart.value = data })
 
   const artistFilter = ref('')
+  const sortBy = ref('fecha')
   const sortDir = ref('asc')
 
   const artists = computed(() => [...new Set(mock.value.map(p => p.artista))].sort())
 
   const filteredList = computed(() => {
+
     let list = mock.value
     if (artistFilter.value) list = list.filter(p => p.artista === artistFilter.value)
+
     return [...list].sort((a, b) => {
-      return sortDir.value === 'asc' ? a.fecha.localeCompare(b.fecha) : b.fecha.localeCompare(a.fecha)
+      let cmp
+      if (sortBy.value === 'precio') cmp = a.precio - b.precio
+      else cmp = a.fecha.localeCompare(b.fecha)
+      return sortDir.value === 'asc' ? cmp : -cmp
     })
+
   })
 
   const cartCount = computed(() => cart.value.reduce((s, c) => s + c.quantity, 0))
   const cartTotal = computed(() => cart.value.reduce((s, c) => s + c.quantity * c.price, 0))
+
+  const cartSortBy = ref('price')
+  const cartSortDir = ref('asc')
+
+  const sortedCart = computed(() => {
+
+    const list = [...cart.value]
+
+    list.sort((a, b) => {
+      let cmp
+      if (cartSortBy.value === 'price') cmp = a.price - b.price
+      else cmp = a.id - b.id
+      return cartSortDir.value === 'asc' ? cmp : -cmp
+    })
+
+    return list
+
+  })
 
   function getItem(id) { return mock.value.find(m => m.id === Number(id)) }
 
@@ -42,6 +67,6 @@ export const useStore = defineStore('store', () => {
     updateCart(cart.value)
   }
 
-  return { mock, cart, cartCount, cartTotal, getItem, addToCart, removeFromCart, artistFilter, sortDir, artists, filteredList }
+  return { mock, cart, cartCount, cartTotal, getItem, addToCart, removeFromCart, artistFilter, sortBy, sortDir, artists, filteredList, cartSortBy, cartSortDir, sortedCart }
 
 })

@@ -7,19 +7,24 @@ import Botbar from '../componentes/botbar.vue'
 const store = useStore()
 
 const covers = computed(() => {
+
   const seen = new Set()
+
   const items = store.mock.filter(item => {
     if (seen.has(item.disco)) return false
     seen.add(item.disco)
     return true
   })
+
   return items.map((item, i) => ({
     src: item.imagenes[1],
     rotation: Math.floor(Math.random() * 14) - 7,
     scale: +(1.0 + Math.random() * 0.25).toFixed(2),
     delay: `-${6 * i}s`
   }))
+
 })
+
 </script>
 
 <template>
@@ -48,4 +53,5 @@ const covers = computed(() => {
     </div>
 
   </section>
+  
 </template>

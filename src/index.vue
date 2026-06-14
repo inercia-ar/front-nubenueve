@@ -3,26 +3,13 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const showTop = ref(false)
 
-function onScroll() {
-  showTop.value = window.scrollY > 400 || document.documentElement.scrollTop > 400
-}
+function onScroll()    { showTop.value = window.scrollY > 400 || document.documentElement.scrollTop > 400 }
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }) }
+function check()       { showTop.value = document.documentElement.scrollHeight > document.documentElement.clientHeight + 2 }
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-}
+onMounted(()   => { window.addEventListener('scroll', onScroll, { passive: true }); check() })
+onUnmounted(() => { window.removeEventListener('scroll', onScroll) })
 
-function check() {
-  showTop.value = document.documentElement.scrollHeight > document.documentElement.clientHeight + 2
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true })
-  check()
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-})
 </script>
 
 <template>

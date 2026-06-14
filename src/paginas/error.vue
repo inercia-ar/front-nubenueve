@@ -6,17 +6,15 @@ const router = useRouter()
 
 const words = ref([])
 
-function rand(min, max) {
-  return Math.random() * (max - min) + min
-}
-
-function pick(...args) {
-  return args[Math.floor(Math.random() * args.length)]
-}
+function rand(min, max) { return Math.random() * (max - min) + min }
+function pick(...args)  { return args[Math.floor(Math.random() * args.length)] }
 
 onMounted(() => {
+
   const slots = [
-    // zone: [topMin, topMax, leftMin, leftMax, sizeMin, sizeMax, ...colors]
+
+    // zone: topMin, topMax, leftMin, leftMax, sizeMin, sizeMax, ...colors
+
     { text: 'SEÑAL',   zone: [-5, 2, 0, 20, 14, 20, '--negro-b-SO', '--negro-b-SO', '--marron-05'] },
     { text: 'PERDIDA', zone: [-3, 4, 60, 85, 12, 16, '--marron-05', '--negro-b-SO', '--negro-b-SO'] },
     { text: 'SEÑAL',   zone: [8, 18, 30, 50, 10, 14, '--gris-a-10', '--gris-a-10', '--negro-b-SO'] },
@@ -29,9 +27,11 @@ onMounted(() => {
     { text: 'PERDIDA', zone: [65, 75, 0, 15, 8, 10, '--negro-b-SO', '--gris-a-05', '--marron-05'] },
     { text: 'SEÑAL',   zone: [78, 88, 40, 65, 10, 13, '--negro-b-SO', '--gris-a-05', '--negro-b-SO'] },
     { text: 'PERDIDA', zone: [80, 90, 18, 35, 6, 8, '--gris-a-05', '--negro-b-SO', '--negro-b-SO'] },
+
   ]
 
   words.value = slots.map(s => {
+
     const top = rand(s.zone[0], s.zone[1])
     const left = rand(s.zone[2], s.zone[3])
     const size = rand(s.zone[4], s.zone[5])
@@ -51,45 +51,35 @@ onMounted(() => {
     }
   })
 })
+
 </script>
 
 <template>
+
   <section class="error">
+
     <div class="ghost" aria-hidden="true">
-      <span
-        v-for="(w, i) in words"
-        :key="i"
-        class="ew"
-        :style="w.style"
-      >{{ w.text }}</span>
+      <span v-for="(w, i) in words" :key="i" class="ew" :style="w.style">{{ w.text }}</span>
     </div>
 
     <div class="modal">
+
       <div class="panel">
+
         <header class="header">SYS.ERR</header>
         <h1 class="code">404</h1>
         <p class="text-small">Llegaste al final de la cinta</p>
         <button @click="router.push({ name: 'home' })" class="text-btn">REBOBINAR</button>
+
       </div>
+
     </div>
+
   </section>
+
 </template>
 
 <style scoped>
-.ghost {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.ew {
-  position: absolute;
-  font-family: var(--font-grotesk);
-  font-weight: 700;
-  text-transform: uppercase;
-  white-space: nowrap;
-  letter-spacing: -0.04em;
-  line-height: 0.8;
-}
+.ghost { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.ew    { position: absolute; font-family: var(--font-grotesk); font-weight: 700; text-transform: uppercase; white-space: nowrap; letter-spacing: -0.04em; line-height: 0.8; }
 </style>
