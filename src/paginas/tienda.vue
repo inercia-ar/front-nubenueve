@@ -12,7 +12,7 @@ function goItem(id) {
 <template>
   <section class="shop">
     <header class="topbar">
-      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
+      <router-link :to="{ name: 'home' }">NUBE NUEVE VOL 1</router-link>
       <span class="audio-format min-hide">LOTE: {{ store.mock.length }} UNIDADES</span>
       <router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link>
     </header>
@@ -59,19 +59,14 @@ function goItem(id) {
             <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
           </div>
         </div>
+
       </article>
-      
-      <article class="card is-empty">
-        <div class="content">
-          <div class="label">
-            <span class="tag">VACÍO</span>
-          </div>
-          <div class="core">
-            <h3>NO DATA</h3>
-          </div>
-          <div class="actions"></div>
-        </div>
-      </article>
+
     </div>
+
+    <div class="footer">
+      <span class="text-small-centered">REALIZADO POR <a href="https://octantes.github.io" target="_blank" rel="noopener noreferrer">INERCIA.AR</a></span>
+    </div>
+    
   </section>
 </template>

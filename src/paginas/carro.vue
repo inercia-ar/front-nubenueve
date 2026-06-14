@@ -13,10 +13,14 @@ function goItem(id) {
 <template>
   <section class="carro">
     <header class="topbar">
-      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
+      <router-link :to="{ name: 'home' }">NUBE NUEVE VOL 1</router-link>
       <span class="audio-format min-hide">{{ store.cart.length }} ARTÍCULOS</span>
       <span class="audio-format">TOTAL: ${{ store.cartTotal.toLocaleString() }}</span>
     </header>
+
+    <div class="filtros">
+      <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
+    </div>
 
     <div v-if="store.cart.length" class="cart-grid">
       <article
@@ -50,8 +54,9 @@ function goItem(id) {
       </article>
     </div>
 
-    <div class="nav">
-      <router-link :to="{ name: 'tienda' }" class="text-btn">VOLVER</router-link>
+    <div class="footer">
+      <span class="text-small-centered">REALIZADO POR <a href="https://octantes.github.io" target="_blank" rel="noopener noreferrer">INERCIA.AR</a></span>
     </div>
+
   </section>
 </template>

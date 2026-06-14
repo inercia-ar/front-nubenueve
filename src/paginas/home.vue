@@ -1,9 +1,10 @@
 <script setup>
+import { computed } from 'vue'
 import { useStore } from '../sistema/store.js'
 
 const store = useStore()
 
-const covers = (() => {
+const covers = computed(() => {
   const seen = new Set()
   const items = store.mock.filter(item => {
     if (seen.has(item.disco)) return false
@@ -16,7 +17,7 @@ const covers = (() => {
     scale: +(1.0 + Math.random() * 0.25).toFixed(2),
     delay: `-${6 * i}s`
   }))
-})()
+})
 
 </script>
 
@@ -25,7 +26,7 @@ const covers = (() => {
   <section class="home">
 
     <header class="topbar">
-      <span class="text-small-centered">NUBE NUEVE VOL 1</span>
+      <router-link :to="{ name: 'home' }">NUBE NUEVE VOL 1</router-link>
       <span class="text-small-centered min-hide">ALTA FIDELIDAD · STEREO</span>
       <router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link>
     </header>
