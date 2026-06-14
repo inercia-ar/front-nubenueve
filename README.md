@@ -1,62 +1,69 @@
-╔══════════════════════════════════════════════════════════════════╗
-║  CÓMO CONECTAR AL BACKEND  (hacé estas 4 cosas y listo)          ║
-╚══════════════════════════════════════════════════════════════════╝
+# Cómo Conectar al Backend
+*(Hacé estas 4 cosas y listo)*
 
-1. PONER LAS URLS (abajo)
+---
 
-    Si el backend corre en http://localhost:8000/api, cambiá:
+## 1. Configurar las URLs
 
-    baseURL  → '/api'          (catálogo de productos)
-    cartURL  → '/api/cart'     (carrito de compras)
-    orderURL → '/api/pedidos'  (crear pedido)
+Si el backend corre en `http://localhost:8000/api`, modificá las siguientes variables:
 
-    Si una URL queda vacía, esa funcionalidad usa datos mock
-    (archivo local + localStorage) y no toca el backend.
+| Variable | Endpoint Sugerido | Funcionalidad |
+| :--- | :--- | :--- |
+| `baseURL` | `'/api'` | Catálogo de productos |
+| `cartURL` | `'/api/cart'` | Carrito de compras |
+| `orderURL` | `'/api/pedidos'` | Crear pedido |
 
-    Podés setear solo algunas:
-    baseURL = '/api'   → catálogo real, carrito y pedidos mock
-    cartURL = '/api/cart' → carrito real (baseURL puede estar vacía)
+> **Nota sobre Datos Mock:**
+> Si una URL queda vacía, esa funcionalidad usa datos mock (archivo local + `localStorage`) y no toca el backend. Podés setear solo algunas. Por ejemplo: si usás `baseURL = '/api'`, tendrás el catálogo real, pero el carrito y los pedidos seguirán siendo mock. También podés tener solo `cartURL = '/api/cart'` y dejar `baseURL` vacía.
 
+## 2. Autenticación *(si hace falta)*
 
-2. AUTENTICACIÓN (si hace falta)
+En el archivo `src/sistema/main.js` agregá el siguiente código:
 
-    En src/sistema/main.js agregá:
+```javascript
+import { setAuthHeaders } from './api'
 
-    import { setAuthHeaders } from './api'
-    setAuthHeaders(() => {
-        const token = localStorage.getItem('token')
-        return token ? { Authorization: `Bearer ${token}` } : {}
-    })
+setAuthHeaders(() => {
+    const token = localStorage.getItem('token')
+    return token ? { Authorization: `Bearer ${token}` } : {}
+})
+```
+*Esto aplica el header a **TODAS** las llamadas al backend.*
 
-    Eso aplica el header a TODAS las llamadas al backend.
+## 3. Imágenes *(si usan CDN)*
 
+Buscá la función `resolveImage()` más abajo en este archivo. Ahí podés transformar las rutas de imágenes. 
 
-3. IMÁGENES (si usan CDN)
+**Ejemplo:**
+```javascript
+return `https://cdn.example.com${path}`
+```
 
-    Buscá la función resolveImage() más abajo en este archivo.
-    Ahí podés transformar las rutas de imágenes, ej:
-    return `https://cdn.example.com${path}`
+## 4. Forma del Pedido *(si no coincide con tu backend)*
 
+En `api/pedidos.js` está la función `normalizeOrder()`. Ahí podés mapear la estructura de datos que envía el frontend a la que espera recibir tu API. *(El archivo ya incluye un ejemplo comentado).*
 
-4. FORMA DEL PEDIDO (si no coincide con tu backend)
+---
 
-    En api/pedidos.js está la función normalizeOrder().
-    Ahí podés mapear la forma que envía el frontend a la que
-    espera tu API. Ya tiene un ejemplo comentado.
+## Referencia de Endpoints REST
 
-El frontend espera estos endpoints REST:
+El frontend espera conectarse a estos endpoints:
 
-    GET    /api/productos         → lista de productos
-    GET    /api/productos/:id     → un producto
-    GET    /api/cart              → carrito del usuario
-    POST   /api/cart/items        → agregar item al carrito
-    PATCH  /api/cart/items/:id    → cambiar cantidad
-    DELETE /api/cart/items/:id    → sacar item del carrito
-    DELETE /api/cart              → vaciar carrito
-    POST   /api/pedidos           → crear pedido
+| Método | Endpoint | Acción |
+| :--- | :--- | :--- |
+| **GET** | `/api/productos` | Obtener lista de productos |
+| **GET** | `/api/productos/:id` | Obtener un producto específico |
+| **GET** | `/api/cart` | Obtener el carrito del usuario |
+| **POST** | `/api/cart/items` | Agregar un item al carrito |
+| **PATCH** | `/api/cart/items/:id` | Cambiar la cantidad de un item |
+| **DELETE** | `/api/cart/items/:id` | Sacar un item del carrito |
+| **DELETE** | `/api/cart` | Vaciar el carrito por completo |
+| **POST** | `/api/pedidos` | Crear un nuevo pedido |
 
-Para más detalles sobre la forma de cada objeto, abrí:
+## Detalles de Estructura de Datos
 
-    api/productos.js  → normalizeProduct()
-    api/cart.js       → normalizeCartItem()
-    api/pedidos.js    → normalizeOrder()
+Para más detalles sobre la forma exacta de cada objeto, revisá las funciones normalizadoras en sus respectivos archivos:
+
+* `api/productos.js` → Revisar `normalizeProduct()`
+* `api/cart.js` → Revisar `normalizeCartItem()`
+* `api/pedidos.js` → Revisar `normalizeOrder()`
