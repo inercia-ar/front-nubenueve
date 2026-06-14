@@ -13,11 +13,10 @@ const loaded = ref(!!props.src && typeof window !== 'undefined' && 'Intersection
 
 onMounted(() => {
   if (loaded.value || !el.value) return
-  const obs = new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) { loaded.value = true; obs.disconnect() }
-  }, { rootMargin: '200px' })
+  const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { loaded.value = true; obs.disconnect() } }, { rootMargin: '200px' })
   obs.observe(el.value)
 })
+
 </script>
 
 <template>

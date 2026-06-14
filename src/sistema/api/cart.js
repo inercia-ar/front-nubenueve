@@ -2,6 +2,8 @@ import { cartURL, apiFetch, resolveImage, unpack } from './client'
 
 export const hasCartApi = !!cartURL
 
+/* NORMALIZE para cambiar datos --------------------------------- */
+
 function normalizeCartItem(raw) {
 
   return {
@@ -29,13 +31,13 @@ export async function fetchCart() {
 
 }
 
-/* LOCALSTORAGE (solo cuando cartURL está vacío) ---------------- */
+/* LOCALSTORAGE (solo cuando cartURL esta vacio) ---------------- */
 
 export function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-/* ENDPOINTS CONVENCIONALES (solo cuando cartURL está seteado) -- */
+/* ENDPOINTS CONVENCIONALES (solo cuando cartURL esta seteado) -- */
 
 export async function addCartItem(item) {
   return apiFetch(`${cartURL}/items`, { method: 'POST', body: JSON.stringify(item) })

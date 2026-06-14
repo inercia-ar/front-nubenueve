@@ -1,14 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import {
-  fetchCatalog, fetchCart, hasCartApi,
-  addCartItem, removeCartItem, patchCartItem, clearCartApi,
-  saveCart, submitOrder as submitOrderApi,
-} from './api'
+
+import { fetchCatalog, fetchCart, hasCartApi, addCartItem, removeCartItem, patchCartItem, clearCartApi, saveCart, submitOrder as submitOrderApi } from './api'
 
 export const useStore = defineStore('store', () => {
 
-  /* ── catálogo ─────────────────────────────────────────────── */
+  /* catalogo */
 
   const mock = ref([])
   const catalogLoaded = ref(false)
@@ -18,7 +15,7 @@ export const useStore = defineStore('store', () => {
     .then(data => { mock.value = data.sort((a, b) => a.fecha.localeCompare(b.fecha)); catalogLoaded.value = true })
     .catch(e => { catalogError.value = e; console.log(e) })
 
-  /* ── carrito ──────────────────────────────────────────────── */
+  /* carrito */
 
   const cart = ref([])
   const cartLoaded = ref(false)
@@ -28,7 +25,7 @@ export const useStore = defineStore('store', () => {
     .then(data => { cart.value = data; cartLoaded.value = true })
     .catch(e => { cartError.value = e; console.log(e) })
 
-  /* ── filtros / sort ───────────────────────────────────────── */
+  /* filtros */
 
   const artistFilter = ref('')
   const sortBy = ref('fecha')
@@ -64,7 +61,7 @@ export const useStore = defineStore('store', () => {
   const cartCount = computed(() => cart.value.reduce((s, c) => s + c.quantity, 0))
   const cartTotal = computed(() => cart.value.reduce((s, c) => s + c.quantity * c.price, 0))
 
-  /* ── helpers ──────────────────────────────────────────────── */
+  /* helpers */
 
   function getItem(id) { return mock.value.find(m => m.id === Number(id)) }
 
@@ -72,7 +69,7 @@ export const useStore = defineStore('store', () => {
     if (!hasCartApi) saveCart(cart.value)
   }
 
-  /* ── acciones mutación con optimismo + rollback ───────────── */
+  /* mutacion */
 
   async function addToCart(itemId) {
     const item = getItem(itemId)
@@ -143,15 +140,13 @@ export const useStore = defineStore('store', () => {
     }
   }
 
-  /* ── pedido ───────────────────────────────────────────────── */
+  /* pedido */
 
   async function submitOrder(order) {
     const res = await submitOrderApi(order)
     await clearCart()
     return res
   }
-
-  /* ── return ───────────────────────────────────────────────── */
 
   return {
     mock, catalogLoaded, catalogError, cart, cartLoaded, cartError,

@@ -34,7 +34,9 @@ function add() {
 </script>
 
 <template>
+
   <section class="detalle">
+
     <Topbar>
       <template #center><span class="min-hide">REF: 00{{ item?.id }}</span></template>
       <template #right><router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link></template>
@@ -83,5 +85,7 @@ function add() {
         <div class="skel skel--line w-30" />
       </div>
     </div>
+
   </section>
+
 </template>

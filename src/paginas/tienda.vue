@@ -14,7 +14,9 @@ function goItem(id) {
 </script>
 
 <template>
+  
   <section class="shop">
+    
     <Topbar>
       <template #center><span class="min-hide">LOTE: {{ store.mock.length }} UNIDADES</span></template>
       <template #right><router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link></template>
