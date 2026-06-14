@@ -24,25 +24,33 @@ function goItem(id) {
 
     <div class="shop-grid">
 
-      <Card v-for="(item, index) in store.filteredList"
-        :key="item.id"
-        :id="item.id" :index="index"
-        :thumb="item.imagenes[0]" :alt="item.disco" :title="item.disco"
-        :price="'$' + item.precio.toLocaleString('es-CL')"
-        :long="item.formato === 'box' || item.formato === 'cinta'"
-        @click="goItem(item.id)"
-      >
-        <template #specs>
-          <span>{{ item.formato.toUpperCase() }}</span>
-          <span class="divider">|</span>
-          <span>STOCK {{ item.stock }}</span>
-        </template>
+      <div v-if="store.catalogError" class="api-error">SEÑAL PERDIDA — No se pudo cargar el catálogo</div>
 
-        <template #action>
-          <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
-        </template>
-        
-      </Card>
+      <template v-else-if="store.catalogLoaded">
+        <Card v-for="(item, index) in store.filteredList"
+          :key="item.id"
+          :id="item.id" :index="index"
+          :thumb="item.imagenes[0]" :alt="item.disco" :title="item.disco"
+          :price="'$' + item.precio.toLocaleString('es-CL')"
+          :long="item.formato === 'box' || item.formato === 'cinta'"
+          @click="goItem(item.id)"
+        >
+          <template #specs>
+            <span>{{ item.formato.toUpperCase() }}</span>
+            <span class="divider">|</span>
+            <span>STOCK {{ item.stock }}</span>
+          </template>
+
+          <template #action>
+            <button class="icon-btn" title="Añadir al carrito" @click.stop="store.addToCart(item.id)">+</button>
+          </template>
+          
+        </Card>
+      </template>
+
+      <div v-else class="skel-grid">
+        <div v-for="n in 8" :key="n" class="skel" />
+      </div>
 
     </div>
 

@@ -1,14 +1,34 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { fetchCatalog, fetchCart, updateCart } from './api'
+import {
+  fetchCatalog, fetchCart, hasCartApi,
+  addCartItem, removeCartItem, patchCartItem, clearCartApi,
+  saveCart, submitOrder as submitOrderApi,
+} from './api'
 
 export const useStore = defineStore('store', () => {
 
+  /* ── catálogo ─────────────────────────────────────────────── */
+
   const mock = ref([])
-  fetchCatalog().then(data => { mock.value = data.sort((a, b) => a.fecha.localeCompare(b.fecha)) })
+  const catalogLoaded = ref(false)
+  const catalogError = ref(null)
+
+  fetchCatalog()
+    .then(data => { mock.value = data.sort((a, b) => a.fecha.localeCompare(b.fecha)); catalogLoaded.value = true })
+    .catch(e => { catalogError.value = e; console.log(e) })
+
+  /* ── carrito ──────────────────────────────────────────────── */
 
   const cart = ref([])
-  fetchCart().then(data => { cart.value = data })
+  const cartLoaded = ref(false)
+  const cartError = ref(null)
+
+  fetchCart()
+    .then(data => { cart.value = data; cartLoaded.value = true })
+    .catch(e => { cartError.value = e; console.log(e) })
+
+  /* ── filtros / sort ───────────────────────────────────────── */
 
   const artistFilter = ref('')
   const sortBy = ref('fecha')
@@ -17,73 +37,128 @@ export const useStore = defineStore('store', () => {
   const artists = computed(() => [...new Set(mock.value.map(p => p.artista))].sort())
 
   const filteredList = computed(() => {
-
     let list = mock.value
     if (artistFilter.value) list = list.filter(p => p.artista === artistFilter.value)
-
     return [...list].sort((a, b) => {
       let cmp
       if (sortBy.value === 'precio') cmp = a.precio - b.precio
       else cmp = a.fecha.localeCompare(b.fecha)
       return sortDir.value === 'asc' ? cmp : -cmp
     })
-
   })
-
-  const cartCount = computed(() => cart.value.reduce((s, c) => s + c.quantity, 0))
-  const cartTotal = computed(() => cart.value.reduce((s, c) => s + c.quantity * c.price, 0))
 
   const cartSortBy = ref('price')
   const cartSortDir = ref('asc')
 
   const sortedCart = computed(() => {
-
     const list = [...cart.value]
-
     list.sort((a, b) => {
       let cmp
       if (cartSortBy.value === 'price') cmp = a.price - b.price
       else cmp = a.id - b.id
       return cartSortDir.value === 'asc' ? cmp : -cmp
     })
-
     return list
-
   })
+
+  const cartCount = computed(() => cart.value.reduce((s, c) => s + c.quantity, 0))
+  const cartTotal = computed(() => cart.value.reduce((s, c) => s + c.quantity * c.price, 0))
+
+  /* ── helpers ──────────────────────────────────────────────── */
 
   function getItem(id) { return mock.value.find(m => m.id === Number(id)) }
 
-  function addToCart(itemId) {
+  function persist() {
+    if (!hasCartApi) saveCart(cart.value)
+  }
+
+  /* ── acciones mutación con optimismo + rollback ───────────── */
+
+  async function addToCart(itemId) {
     const item = getItem(itemId)
     if (!item) return
-    const existing = cart.value.find(c => c.id === itemId)
-    if (existing) { existing.quantity++ }
+    const idx = cart.value.findIndex(c => c.id === itemId)
+    const prev = JSON.parse(JSON.stringify(cart.value))
+    if (idx >= 0) { cart.value[idx].quantity++ }
     else { cart.value.push({ id: itemId, quantity: 1, name: item.disco, price: item.precio, image: item.imagenes[0] }) }
-    updateCart(cart.value)
+    try {
+      if (hasCartApi) await addCartItem(idx >= 0 ? cart.value[idx] : cart.value[cart.value.length - 1])
+      else persist()
+    } catch (e) {
+      cart.value = prev
+      console.error('addToCart failed:', e)
+    }
   }
 
-  function removeFromCart(itemId) {
+  async function removeFromCart(itemId) {
+    const prev = JSON.parse(JSON.stringify(cart.value))
     cart.value = cart.value.filter(c => c.id !== itemId)
-    updateCart(cart.value)
+    try {
+      if (hasCartApi) await removeCartItem(itemId)
+      else persist()
+    } catch (e) {
+      cart.value = prev
+      console.error('removeFromCart failed:', e)
+    }
   }
 
-  function incrementQuantity(itemId) {
-    const item = cart.value.find(c => c.id === itemId)
-    if (item) { item.quantity++; updateCart(cart.value) }
-  }
-
-  function decrementQuantity(itemId) {
+  async function incrementQuantity(itemId) {
     const item = cart.value.find(c => c.id === itemId)
     if (!item) return
-    if (item.quantity <= 1) removeFromCart(itemId)
-    else { item.quantity--; updateCart(cart.value) }
+    const prev = JSON.parse(JSON.stringify(cart.value))
+    item.quantity++
+    try {
+      if (hasCartApi) await patchCartItem(itemId, { quantity: item.quantity })
+      else persist()
+    } catch (e) {
+      cart.value = prev
+      console.error('incrementQuantity failed:', e)
+    }
   }
 
-  function clearCart() {
+  async function decrementQuantity(itemId) {
+    const item = cart.value.find(c => c.id === itemId)
+    if (!item) return
+    if (item.quantity <= 1) { removeFromCart(itemId); return }
+    const prev = JSON.parse(JSON.stringify(cart.value))
+    item.quantity--
+    try {
+      if (hasCartApi) await patchCartItem(itemId, { quantity: item.quantity })
+      else persist()
+    } catch (e) {
+      cart.value = prev
+      console.error('decrementQuantity failed:', e)
+    }
+  }
+
+  async function clearCart() {
+    const prev = JSON.parse(JSON.stringify(cart.value))
     cart.value = []
-    updateCart(cart.value)
+    try {
+      if (hasCartApi) await clearCartApi()
+      else persist()
+    } catch (e) {
+      cart.value = prev
+      console.error('clearCart failed:', e)
+    }
   }
 
-  return { mock, cart, cartCount, cartTotal, getItem, addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart, artistFilter, sortBy, sortDir, artists, filteredList, cartSortBy, cartSortDir, sortedCart }
+  /* ── pedido ───────────────────────────────────────────────── */
+
+  async function submitOrder(order) {
+    const res = await submitOrderApi(order)
+    await clearCart()
+    return res
+  }
+
+  /* ── return ───────────────────────────────────────────────── */
+
+  return {
+    mock, catalogLoaded, catalogError, cart, cartLoaded, cartError,
+    cartCount, cartTotal, getItem,
+    addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart, submitOrder,
+    artistFilter, sortBy, sortDir, artists, filteredList,
+    cartSortBy, cartSortDir, sortedCart,
+  }
 
 })

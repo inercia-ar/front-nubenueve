@@ -618,11 +618,83 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 }
 
+.server-err {
+
+  /* XBOX */ padding: 0.6rem 0.75rem;
+  /* HUES */ background: var(--marron-SO); color: var(--negro-SO); border: 1px solid var(--marron-SO);
+  /* TEXT */ font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
+
+}
+
 .checkout-submit {
 
   /* XBOX */ justify-content: center; margin-top: 0.5rem;
 
+  &:disabled { opacity: 0.4; pointer-events: none; }
+
 }
+
+/* API ERROR -------------------------------------------------- */
+
+.api-error {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  color: var(--marron-SO);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* SKELETON LOADING ------------------------------------------- */
+
+.skel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.skel {
+  aspect-ratio: 3 / 4;
+  background: var(--gris-a-25);
+  border-radius: 4px;
+  animation: skel-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skel-pulse {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 0.6; }
+}
+
+.skel-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.skel--shot {
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+.skel-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.skel--line {
+  height: 1rem;
+  border-radius: 4px;
+}
+
+.w-60 { width: 60%; }
+.w-40 { width: 40%; }
+.w-80 { width: 80%; }
+.w-30 { width: 30%; }
 
 /* QUERIES -------------------------------------------------------------------------------------------------------- */
 

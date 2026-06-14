@@ -8,12 +8,13 @@ const route = useRoute()
 const router = useRouter()
 const store = useStore()
 
-const item = computed(() => store.getItem(route.params.id))
-
-watch(() => store.mock.length, (len) => {
-  if (len && !item.value) router.replace('/404')
-}, { immediate: true })
 const currentIdx = ref(0)
+
+const item = computed(() => store.catalogLoaded ? store.getItem(route.params.id) : undefined)
+
+watch(() => store.catalogLoaded, (loaded) => {
+  if (loaded && !item.value) router.replace('/404')
+})
 
 function prev() {
   if (!item.value) return
@@ -71,6 +72,16 @@ function add() {
       </div>
     </div>
 
-    <div v-if="!store.mock.length" class="main"></div>
+    <div v-else-if="store.catalogError" class="main"><div class="api-error" style="margin:2rem">SEÑAL PERDIDA — No se pudo cargar el producto</div></div>
+
+    <div v-else class="main skel-item">
+      <div class="skel skel--shot" />
+      <div class="skel-info">
+        <div class="skel skel--line w-60" />
+        <div class="skel skel--line w-40" />
+        <div class="skel skel--line w-80" />
+        <div class="skel skel--line w-30" />
+      </div>
+    </div>
   </section>
 </template>

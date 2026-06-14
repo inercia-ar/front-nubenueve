@@ -1,8 +1,7 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '../sistema/store.js'
-import { submitOrder } from '../sistema/api.js'
 
 const props = defineProps({
   visible: Boolean,
@@ -22,6 +21,8 @@ const telefono = ref('')
 const metodo = ref('mercadopago')
 
 const errors = ref({})
+const serverError = ref('')
+const sending = ref(false)
 
 function validate() {
   const e = {}
@@ -44,10 +45,13 @@ function clearForm() {
   telefono.value = ''
   metodo.value = 'mercadopago'
   errors.value = {}
+  serverError.value = ''
 }
 
 async function handleSubmit() {
   if (!validate()) return
+  sending.value = true
+  serverError.value = ''
   const order = {
     items: store.cart,
     cliente: {
@@ -61,11 +65,22 @@ async function handleSubmit() {
     metodo: metodo.value,
     total: store.cartTotal,
   }
-  await submitOrder(order)
-  store.clearCart()
-  clearForm()
-  emit('close')
-  router.push({ name: 'confirmado' })
+  try {
+    const res = await store.submitOrder(order)
+    const data = res ?? {}
+    sessionStorage.setItem('lastOrder', JSON.stringify(data))
+    clearForm()
+    emit('close')
+    router.push({ name: 'confirmado', state: { data } })
+  } catch (err) {
+    if (err.body?.errors) {
+      errors.value = { ...errors.value, ...err.body.errors }
+      serverError.value = err.body?.message || err.message
+      sending.value = false
+      return
+    }
+    router.push({ name: 'fallo', state: { data: { message: err.message } } })
+  }
 }
 
 </script>
@@ -81,6 +96,8 @@ async function handleSubmit() {
       <h2 class="checkout-title">FINALIZAR COMPRA</h2>
 
       <form class="checkout-form" @submit.prevent="handleSubmit">
+
+        <div v-if="serverError" class="server-err">{{ serverError }}</div>
 
         <label class="checkout-field">
           <span class="checkout-label">NOMBRE</span>
@@ -126,7 +143,7 @@ async function handleSubmit() {
           </select>
         </label>
 
-        <button type="submit" class="text-btn checkout-submit">CONFIRMAR PEDIDO</button>
+        <button type="submit" class="text-btn checkout-submit" :disabled="sending">{{ sending ? 'ENVIANDO...' : 'CONFIRMAR PEDIDO' }}</button>
 
       </form>
 

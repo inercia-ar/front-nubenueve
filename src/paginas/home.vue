@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useStore } from '../sistema/store.js'
 import Topbar from '../componentes/topbar.vue'
 import Botbar from '../componentes/botbar.vue'
+import LazyImg from '../componentes/lazy-img.vue'
 
 const store = useStore()
 
@@ -49,7 +50,7 @@ const covers = computed(() => {
     <Botbar />
 
     <div class="covers" aria-hidden="true">
-      <img v-for="(cover, i) in covers" :key="i" :src="cover.src" :style="{ transform: `translate(-50%, -50%) rotate(${cover.rotation}deg) scale(${cover.scale})`, animationDelay: cover.delay }" alt="">
+      <LazyImg v-for="(cover, i) in covers" :key="i" :src="cover.src" :style="{ transform: `translate(-50%, -50%) rotate(${cover.rotation}deg) scale(${cover.scale})`, animationDelay: cover.delay }" alt="" />
     </div>
 
   </section>

@@ -34,7 +34,9 @@ function goItem(id) { router.push({ name: 'item', params: { id } }) }
 
     <Checkout :visible="showCheckout" @close="showCheckout = false" />
 
-    <div v-if="store.cart.length" class="cart-grid">
+    <div v-if="store.cartError" class="api-error">SEÑAL PERDIDA — No se pudo cargar el carrito</div>
+
+    <div v-else-if="store.cartLoaded && store.cart.length" class="cart-grid">
 
       <Card v-for="(c, index) in store.sortedCart"
         :key="c.id"
@@ -58,6 +60,10 @@ function goItem(id) { router.push({ name: 'item', params: { id } }) }
 
       </Card>
 
+    </div>
+
+    <div v-else-if="!store.cartLoaded" class="cart-grid skel-grid">
+      <div v-for="n in 3" :key="n" class="skel" />
     </div>
 
     <Footer />

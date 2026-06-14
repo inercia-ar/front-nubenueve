@@ -1,4 +1,5 @@
 <script setup>
+import LazyImg from './lazy-img.vue'
 
 defineProps({
   id: [Number, String],
@@ -18,7 +19,7 @@ defineEmits(['click'])
 
   <article class="card" :class="[`card--${index % 4}`, { 'card--long': long }]" @click="$emit('click')">
 
-    <img class="thumb" :src="thumb" :alt="alt" loading="lazy">
+    <LazyImg class="thumb" :src="thumb" :alt="alt" />
 
     <div class="content">
 
