@@ -22,8 +22,8 @@ function goItem(id) { router.push({ name: 'item', params: { id } }) }
   <section class="carro">
 
     <Topbar>
-      <template #center> <span class="audio-format min-hide">{{ store.cart.length }} ARTÍCULOS    </span> </template>
-      <template #right>  <span class="audio-format">TOTAL: ${{ store.cartTotal.toLocaleString() }}</span> </template>
+      <template #center> <span class="min-hide">{{ store.cart.length }} ARTÍCULOS </span> </template>
+      <template #right>  <span>TOTAL: ${{ store.cartTotal.toLocaleString() }}     </span> </template>
     </Topbar>
 
     <Filtros volverTo="tienda" :filters="['sort']" sortContext="cart">

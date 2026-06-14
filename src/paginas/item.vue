@@ -36,8 +36,8 @@ function add() {
 <template>
   <section class="detalle">
     <Topbar>
-      <template #center><span class="audio-format min-hide">REF: 00{{ item?.id }}</span></template>
-      <template #right><router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link></template>
+      <template #center><span class="min-hide">REF: 00{{ item?.id }}</span></template>
+      <template #right><router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link></template>
     </Topbar>
 
     <div v-if="item" class="main">

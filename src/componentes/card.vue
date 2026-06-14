@@ -8,7 +8,6 @@ defineProps({
   alt: String,
   title: String,
   price: String,
-  long: Boolean,
 })
 
 defineEmits(['click'])
@@ -17,7 +16,7 @@ defineEmits(['click'])
 
 <template>
 
-  <article class="card" :class="[`card--${index % 4}`, { 'card--long': long }]" @click="$emit('click')">
+  <article class="card" :class="`card--${index % 4}`" @click="$emit('click')">
 
     <LazyImg class="thumb" :src="thumb" :alt="alt" />
 

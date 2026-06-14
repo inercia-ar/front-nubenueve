@@ -307,8 +307,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 .shop-grid { 
 
-  /* XBOX */ display: grid; grid-template-columns: repeat(2, 1fr); flex-grow: 1; padding-bottom: 1.5rem; gap: 1.5rem; align-content: start;
-  /* XTRA */ & > .card--long { grid-column: span 2; }
+  /* XBOX */ display: grid; grid-template-columns: 1fr; flex-grow: 1; padding-bottom: 1.5rem; gap: 1.5rem; align-content: start;
 
 }
 
@@ -391,7 +390,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 }
 
-.divider { color: var(--gris-a-25); }
+.divider { color: var(--gris-a-SO); padding: 1rem; }
 
 .price {
 
@@ -708,7 +707,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
   .hero     { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 
   .home .emblem-icon { width: 56px; height: 56px;         }
-  .detalle           { padding: 1.5rem;                   }
+  .shop, .detalle    { padding: 1.5rem;                   }
   .main              { flex-direction: column; gap: 2rem; }
   .media, .shot      { width: 100%; max-width: 640px;     }
 
@@ -716,7 +715,12 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 @media (max-width: 900px) {
 
-  .shop-grid               { grid-template-columns: 1fr; }
-  .shop-grid > .card--long { grid-column: span 1;        }
-  
+  .shop-grid    { grid-template-columns: repeat(2, 1fr);                              }
+  .card         { flex-direction: column;                                             }
+  .card::before { flex: none;                                                         }
+  .thumb        { width: 100%; height: auto;                                          }
+  .card-body    { padding: 0rem 1.5rem 1.5rem 1.5rem;                                 }
+  .label        { padding-bottom: 1rem;                                               }
+  .actions      { position: relative; bottom: auto; right: auto; margin-top: 0.75rem; }
+
 }

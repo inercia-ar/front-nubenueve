@@ -16,8 +16,8 @@ function goItem(id) {
 <template>
   <section class="shop">
     <Topbar>
-      <template #center><span class="audio-format min-hide">LOTE: {{ store.mock.length }} UNIDADES</span></template>
-      <template #right><router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link></template>
+      <template #center><span class="min-hide">LOTE: {{ store.mock.length }} UNIDADES</span></template>
+      <template #right><router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link></template>
     </Topbar>
 
     <Filtros volverTo="home" :filters="['artist', 'sort']" />
@@ -32,7 +32,6 @@ function goItem(id) {
           :id="item.id" :index="index"
           :thumb="item.imagenes[0]" :alt="item.disco" :title="item.disco"
           :price="'$' + item.precio.toLocaleString('es-CL')"
-          :long="item.formato === 'box' || item.formato === 'cinta'"
           @click="goItem(item.id)"
         >
           <template #specs>
