@@ -1,6 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useStore } from '../sistema/store.js'
+import Topbar from '../componentes/topbar.vue'
+import Botbar from '../componentes/botbar.vue'
 
 const store = useStore()
 
@@ -18,18 +20,16 @@ const covers = computed(() => {
     delay: `-${6 * i}s`
   }))
 })
-
 </script>
 
 <template>
 
   <section class="home">
 
-    <header class="topbar">
-      <router-link :to="{ name: 'home' }">NUBE NUEVE VOL 1</router-link>
-      <span class="text-small-centered min-hide">ALTA FIDELIDAD · STEREO</span>
-      <router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link>
-    </header>
+    <Topbar>
+      <template #center><span class="text-small-centered min-hide">ALTA FIDELIDAD · STEREO</span></template>
+      <template #right><router-link :to="{ name: 'carro' }">CARRO ({{ store.cartCount }})</router-link></template>
+    </Topbar>
 
     <div class="hero">
       <img src="/assets/emblem.png" class="emblem-icon" alt="" draggable="false">
@@ -41,10 +41,7 @@ const covers = computed(() => {
 
     <div class="swatch"></div>
 
-    <div class="botbar">
-      <div class="text-small-centered">VINILOS 33 1/3 · CINTAS DE CASETTE · CDs · ALTA PRECISIÓN</div>
-      <router-link :to="{ name: 'tienda' }" class="text-btn">EXPLORAR ARCHIVO</router-link>
-    </div>
+    <Botbar />
 
     <div class="covers" aria-hidden="true">
       <img v-for="(cover, i) in covers" :key="i" :src="cover.src" :style="{ transform: `translate(-50%, -50%) rotate(${cover.rotation}deg) scale(${cover.scale})`, animationDelay: cover.delay }" alt="">

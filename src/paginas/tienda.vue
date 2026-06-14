@@ -1,6 +1,8 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useStore } from '../sistema/store.js'
+import Topbar from '../componentes/topbar.vue'
+import Footer from '../componentes/footer.vue'
 const router = useRouter()
 const store = useStore()
 
@@ -11,11 +13,10 @@ function goItem(id) {
 
 <template>
   <section class="shop">
-    <header class="topbar">
-      <router-link :to="{ name: 'home' }">NUBE NUEVE VOL 1</router-link>
-      <span class="audio-format min-hide">LOTE: {{ store.mock.length }} UNIDADES</span>
-      <router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link>
-    </header>
+    <Topbar>
+      <template #center><span class="audio-format min-hide">LOTE: {{ store.mock.length }} UNIDADES</span></template>
+      <template #right><router-link :to="{ name: 'carro' }" class="audio-format">CARRO ({{ store.cartCount }})</router-link></template>
+    </Topbar>
 
     <div class="filtros">
       <select v-model="store.artistFilter" class="text-btn">
@@ -64,9 +65,7 @@ function goItem(id) {
 
     </div>
 
-    <div class="footer">
-      <span class="text-small-centered">REALIZADO POR <a href="https://octantes.github.io" target="_blank" rel="noopener noreferrer">INERCIA.AR</a></span>
-    </div>
+    <Footer />
     
   </section>
 </template>
