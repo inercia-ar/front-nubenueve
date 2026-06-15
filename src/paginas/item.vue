@@ -13,8 +13,8 @@ const currentIdx = ref(0)
 const item = computed(() => store.catalogLoaded ? store.getItem(route.params.id) : undefined)
 
 watch(() => store.catalogLoaded, (loaded) => {
-  if (loaded && !item.value) router.replace('/404')
-})
+  if (loaded && !item.value) router.replace({ name: 'error' })
+}, { immediate: true })
 
 function prev() {
   if (!item.value) return

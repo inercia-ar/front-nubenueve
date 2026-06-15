@@ -4,6 +4,7 @@
   --font-serif:   'DM Serif Display', serif;
   --font-mono:    'Inconsolata',      monospace;
   --font-grotesk: 'Inter',            sans-serif;
+  --font-title:   'Kalam',            cursive;
 
   --animate-0: 0.00s ease; --animate-1:  1.00s ease; --animate-2:  2.00s ease; --animate-3: 3.00s ease;
   --animate-a: 0.10s ease; --animate-h:  1.10s ease; --animate-ñ:  2.10s ease; --animate-u: 3.10s ease;
@@ -240,7 +241,7 @@ a {
 
     /* XBOX */ display: block;
     /* HUES */ color: var(--gris-c-SO);
-    /* TEXT */ font-family: var(--font-grotesk); font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.03em;
+    /* TEXT */ font-family: var(--font-title); font-size: clamp(2.5rem, 10vw, 7.75rem); font-weight: 800; line-height: 0.9; letter-spacing: -0.03em;
 
   }
 
@@ -376,7 +377,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
     /* XBOX */ margin: 0;
     /* HUES */ color: var(--gris-c-SO);
-    /* TEXT */ font-family: var(--font-grotesk); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
+    /* TEXT */ font-family: var(--font-title); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase;
 
   }
 
@@ -465,6 +466,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 .main {
 
   /* XBOX */ display: flex; flex-grow: 1; gap: 3rem; padding: 2rem 0;
+  /* PAGE */ min-height: 0;
 
 }
 
@@ -519,6 +521,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 .info {
 
   /* XBOX */ display: flex; flex-direction: column; flex-grow: 1; gap: 1rem;
+  /* PAGE */ min-width: 0; container-type: inline-size;
 
 }
 
@@ -526,7 +529,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
   /* XBOX */ margin: 0;
   /* HUES */ color: var(--gris-c-SO);
-  /* TEXT */ font-family: var(--font-grotesk); font-size: clamp(6rem, 12vw, 10rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; text-transform: lowercase;
+  /* TEXT */ font-family: var(--font-title); font-size: clamp(2.5rem, 12cqi, 10rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; text-transform: uppercase;
   /* INTR */ user-select: text; -webkit-user-select: text;
 
 }
@@ -614,7 +617,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
   /* XBOX */ margin: 0 0 1.5rem;
   /* HUES */ color: var(--amarillo-SO);
-  /* TEXT */ font-family: var(--font-grotesk); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  /* TEXT */ font-family: var(--font-title); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
 
 }
 
@@ -660,7 +663,7 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 .server-err {
 
   /* XBOX */ padding: 0.6rem 0.75rem;
-  /* HUES */ background: var(--marron-SO); color: var(--negro-SO); border: 1px solid var(--marron-SO);
+  /* HUES */ background: var(--marron-SO); color: var(--negro-a-SO); border: 1px solid var(--marron-SO);
   /* TEXT */ font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
 
 }
@@ -736,6 +739,13 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
 /* QUERIES -------------------------------------------------------------------------------------------------------- */
 
+@media (max-width: 1100px) {
+
+  .media, .shot { width: 400px; }
+  .shot         { height: 400px; }
+
+}
+
 @media (max-width: 768px) {
 
   .min-hide { display: none;   }
@@ -745,10 +755,12 @@ select.text-btn option { background: var(--negro-b-SO); color: var(--gris-b-SO);
 
   .hero     { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
 
-  .home .emblem-icon { width: 56px; height: 56px;         }
-  .shop, .carro, .detalle { padding: 1.5rem;             }
-  .main              { flex-direction: column; gap: 2rem; }
-  .media, .shot      { width: 100%; max-width: 640px;     }
+  .home .emblem-icon { width: 56px; height: 56px;           }
+  .shop, .carro, .detalle { padding: 1.5rem;               }
+  .main              { flex-direction: column; gap: 2rem;   }
+  .media, .shot      { width: 100%; max-width: 640px;       }
+  .shot              { height: auto; aspect-ratio: 1;       }
+  .titulo            { font-size: clamp(3rem, 10vw, 6rem);  }
 
 }
 

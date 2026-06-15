@@ -8,6 +8,7 @@ import LazyImg from '../componentes/lazy-img.vue'
 
 const router = useRouter()
 const store = useStore()
+const emblemSrc = `${import.meta.env.BASE_URL}assets/emblem.webp`
 const visualizador = ref(false)
 const shuffleQueue = ref([])
 const queuePos = ref(0)
@@ -93,7 +94,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
     </Topbar>
 
     <div v-if="!visualizador" class="hero">
-      <img src="/assets/emblem.webp" class="emblem-icon" alt="" draggable="false">
+      <img :src="emblemSrc" class="emblem-icon" alt="" draggable="false">
       <h1 class="headline">
         <span class="line accent">nubenueve</span>
         <span class="line">musica tangible</span>
@@ -102,7 +103,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
     <div v-else class="visualizador-view" @click="toggleVisualizador">
       <button class="arrow arrow--prev" @click.stop="prevCover">‹</button>
-      <LazyImg :src="covers[shuffleQueue[queuePos]].src" class="visualizador-cover" alt="" @click.stop="goToVinyl" />
+      <LazyImg v-if="covers.length" :src="covers[shuffleQueue[queuePos]]?.src" class="visualizador-cover" alt="" @click.stop="goToVinyl" />
       <button class="arrow arrow--next" @click.stop="nextCover">›</button>
     </div>
 

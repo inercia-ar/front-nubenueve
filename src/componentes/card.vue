@@ -16,7 +16,7 @@ defineEmits(['click'])
 
 <template>
 
-  <article class="card" :class="`card--${index % 4}`" @click="$emit('click')">
+  <article class="card" :class="`card--${(index ?? 0) % 4}`" @click="$emit('click')">
 
     <LazyImg class="thumb" :src="thumb" :alt="alt" />
 
