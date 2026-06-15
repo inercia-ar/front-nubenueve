@@ -63,7 +63,7 @@ function add() {
       <div class="info">
         <h1 class="titulo">{{ item.disco }}</h1>
         <div class="meta">{{ item.artista }} · {{ item.formato.toUpperCase() }} · {{ item.fecha }}</div>
-        <p class="desc serif-i">{{ item.descripcion }}</p>
+        <p class="desc">{{ item.descripcion }}</p>
         <div class="precio">${{ item.precio.toLocaleString() }}</div>
         <div class="stock">STOCK: {{ item.stock }} UNIDADES</div>
 
