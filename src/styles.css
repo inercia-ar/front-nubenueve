@@ -293,9 +293,9 @@ a {
 
 .code {
   
-  /* XBOX */ margin: 0;
+  /* XBOX */ margin: 1rem 0 -0.75rem;
   /* HUES */ color: var(--amarillo-SO); 
-  /* TEXT */ font-family: var(--font-grotesk); font-size: clamp(4rem, 12vw, 6rem); font-weight: 700; line-height: 0.85; letter-spacing: -0.04em;
+  /* TEXT */ font-family: var(--font-title); font-size: clamp(4rem, 12vw, 6rem); font-weight: 700; line-height: 0.8; letter-spacing: -0.04em;
 
 }
 
