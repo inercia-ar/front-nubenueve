@@ -4,7 +4,7 @@
   --font-serif:   'DM Serif Display', serif;
   --font-mono:    'Inconsolata',      monospace;
   --font-grotesk: 'Inter',            sans-serif;
-  --font-title:   'Kalam',            cursive;
+  --font-title:   'Kalam',            sans-serif;
 
   --animate-0: 0.00s ease; --animate-1:  1.00s ease; --animate-2:  2.00s ease; --animate-3: 3.00s ease;
   --animate-a: 0.10s ease; --animate-h:  1.10s ease; --animate-ñ:  2.10s ease; --animate-u: 3.10s ease;
