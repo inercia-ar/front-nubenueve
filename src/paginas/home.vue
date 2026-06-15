@@ -38,7 +38,7 @@ const covers = computed(() => {
     </Topbar>
 
     <div class="hero">
-      <img src="/assets/emblem.png" class="emblem-icon" alt="" draggable="false">
+      <img src="/assets/emblem.webp" class="emblem-icon" alt="" draggable="false">
       <h1 class="headline">
         <span class="line accent">nubenueve</span>
         <span class="line">musica tangible</span>

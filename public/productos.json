@@ -9,8 +9,8 @@
     "stock": 5,
     "descripcion": "Álbum debut que fusiona sintetizadores analógicos con programación digital.\nProducido durante dos años en un estudio casero en las afueras de Santiago, presura construye paisajes sonoros donde el beat programado dialoga con texturas de sintetizador modular. Las canciones transitan entre el IDM más introspectivo y el pop electrónico, con samples procesados de grabaciones de campo y una voz tratada como un instrumento más.\nIncluye el sencillo 'Umbral' que definió el sonido de la banda.",
     "imagenes": [
-      "/assets/boxes/presura.png",
-      "/assets/covers/presura.png"
+      "/assets/boxes/presura.webp",
+      "/assets/covers/presura.webp"
     ]
   },
   {
@@ -23,8 +23,8 @@
     "stock": 18,
     "descripcion": "Álbum debut que fusiona sintetizadores analógicos con programación digital.\nProducido durante dos años en un estudio casero en las afueras de Santiago, presura construye paisajes sonoros donde el beat programado dialoga con texturas de sintetizador modular. Las canciones transitan entre el IDM más introspectivo y el pop electrónico, con samples procesados de grabaciones de campo y una voz tratada como un instrumento más.\nIncluye el sencillo 'Umbral' que definió el sonido de la banda.",
     "imagenes": [
-      "/assets/tapes/presura.png",
-      "/assets/covers/presura.png"
+      "/assets/tapes/presura.webp",
+      "/assets/covers/presura.webp"
     ]
   },
   {
@@ -37,8 +37,8 @@
     "stock": 25,
     "descripcion": "Álbum debut que fusiona sintetizadores analógicos con programación digital.\nProducido durante dos años en un estudio casero en las afueras de Santiago, presura construye paisajes sonoros donde el beat programado dialoga con texturas de sintetizador modular. Las canciones transitan entre el IDM más introspectivo y el pop electrónico, con samples procesados de grabaciones de campo y una voz tratada como un instrumento más.\nIncluye el sencillo 'Umbral' que definió el sonido de la banda.",
     "imagenes": [
-      "/assets/cds/presura.png",
-      "/assets/covers/presura.png"
+      "/assets/cds/presura.webp",
+      "/assets/covers/presura.webp"
     ]
   },
   {
@@ -51,8 +51,8 @@
     "stock": 15,
     "descripcion": "Álbum debut que fusiona sintetizadores analógicos con programación digital.\nProducido durante dos años en un estudio casero en las afueras de Santiago, presura construye paisajes sonoros donde el beat programado dialoga con texturas de sintetizador modular. Las canciones transitan entre el IDM más introspectivo y el pop electrónico, con samples procesados de grabaciones de campo y una voz tratada como un instrumento más.\nIncluye el sencillo 'Umbral' que definió el sonido de la banda.",
     "imagenes": [
-      "/assets/vinyl/presura.png",
-      "/assets/covers/presura.png"
+      "/assets/vinyl/presura.webp",
+      "/assets/covers/presura.webp"
     ]
   },
   {
@@ -65,8 +65,8 @@
     "stock": 15,
     "descripcion": "EP debut que captura la urgencia del directo con cuatro canciones grabadas en una sola toma.\nGuitarras angulares, líneas de bajo hipnóticas y una batería mecánica que evoca el post-punk más crudo de finales de los setenta, pero con una producción moderna que no sacrifica la aspereza original. Las letras, crípticas y repetitivas, funcionan como mantras urbanos.\nGrabado en vivo en Estudio Sur durante tres noches de invierno.",
     "imagenes": [
-      "/assets/tapes/rumiar.png",
-      "/assets/covers/rumiar.png"
+      "/assets/tapes/rumiar.webp",
+      "/assets/covers/rumiar.webp"
     ]
   },
   {
@@ -79,8 +79,8 @@
     "stock": 20,
     "descripcion": "EP debut que captura la urgencia del directo con cuatro canciones grabadas en una sola toma.\nGuitarras angulares, líneas de bajo hipnóticas y una batería mecánica que evoca el post-punk más crudo de finales de los setenta, pero con una producción moderna que no sacrifica la aspereza original. Las letras, crípticas y repetitivas, funcionan como mantras urbanos.\nGrabado en vivo en Estudio Sur durante tres noches de invierno.",
     "imagenes": [
-      "/assets/cds/rumiar.png",
-      "/assets/covers/rumiar.png"
+      "/assets/cds/rumiar.webp",
+      "/assets/covers/rumiar.webp"
     ]
   },
   {
@@ -93,8 +93,8 @@
     "stock": 8,
     "descripcion": "EP debut que captura la urgencia del directo con cuatro canciones grabadas en una sola toma.\nGuitarras angulares, líneas de bajo hipnóticas y una batería mecánica que evoca el post-punk más crudo de finales de los setenta, pero con una producción moderna que no sacrifica la aspereza original. Las letras, crípticas y repetitivas, funcionan como mantras urbanos.\nGrabado en vivo en Estudio Sur durante tres noches de invierno.",
     "imagenes": [
-      "/assets/vinyl/rumiar.png",
-      "/assets/covers/rumiar.png"
+      "/assets/vinyl/rumiar.webp",
+      "/assets/covers/rumiar.webp"
     ]
   },
   {
@@ -107,8 +107,8 @@
     "stock": 18,
     "descripcion": "Álbum conceptual inspirado en la herpetología local, donde cada tema lleva el nombre de una especie de reptil sudamericano.\nRitmos hipnóticos y repetitivos construidos sobre secuencias de sintetizador analógico, con largos desarrollos instrumentales que evocan el motorik de Neu! y la experimentación de Can. Grabado completamente en cinta de carrete abierto para capturar la calidez del sonido analógico.\nArte de tapa con ilustraciones originales del artista visual chileno Rodrigo Zúñiga.",
     "imagenes": [
-      "/assets/cds/рептилии.png",
-      "/assets/covers/рептилии.png"
+      "/assets/cds/рептилии.webp",
+      "/assets/covers/рептилии.webp"
     ]
   },
   {
@@ -121,8 +121,8 @@
     "stock": 10,
     "descripcion": "Álbum conceptual inspirado en la herpetología local, donde cada tema lleva el nombre de una especie de reptil sudamericano.\nRitmos hipnóticos y repetitivos construidos sobre secuencias de sintetizador analógico, con largos desarrollos instrumentales que evocan el motorik de Neu! y la experimentación de Can. Grabado completamente en cinta de carrete abierto para capturar la calidez del sonido analógico.\nArte de tapa con ilustraciones originales del artista visual chileno Rodrigo Zúñiga.",
     "imagenes": [
-      "/assets/vinyl/рептилии.png",
-      "/assets/covers/рептилии.png"
+      "/assets/vinyl/рептилии.webp",
+      "/assets/covers/рептилии.webp"
     ]
   },
   {
@@ -135,8 +135,8 @@
     "stock": 12,
     "descripcion": "Registro en vivo que captura la energía del cuarteto durante su gira europea de 2024.\nPolirritmias complejas, cambios de compás vertiginosos y guitarras con tapping que dialogan en contrapunto, todo ejecutado con una precisión quirúrgica que desafía la etiqueta de 'álbum en vivo'. Seleccionado de doce conciertos grabados en siete países, boreal resume la experiencia escénica de brash en su estado más puro.\nIncluye un interludio de batería solista grabado en el backstage del Flex de Viena.",
     "imagenes": [
-      "/assets/cds/boreal.png",
-      "/assets/covers/boreal.png"
+      "/assets/cds/boreal.webp",
+      "/assets/covers/boreal.webp"
     ]
   },
   {
@@ -149,8 +149,8 @@
     "stock": 6,
     "descripcion": "Registro en vivo que captura la energía del cuarteto durante su gira europea de 2024.\nPolirritmias complejas, cambios de compás vertiginosos y guitarras con tapping que dialogan en contrapunto, todo ejecutado con una precisión quirúrgica que desafía la etiqueta de 'álbum en vivo'. Seleccionado de doce conciertos grabados en siete países, boreal resume la experiencia escénica de brash en su estado más puro.\nIncluye un interludio de batería solista grabado en el backstage del Flex de Viena.",
     "imagenes": [
-      "/assets/vinyl/boreal.png",
-      "/assets/covers/boreal.png"
+      "/assets/vinyl/boreal.webp",
+      "/assets/covers/boreal.webp"
     ]
   },
   {
@@ -163,8 +163,8 @@
     "stock": 5,
     "descripcion": "Álbum de rarezas que compila sesiones de estudio, caras B y versiones alternativas de canciones previamente editadas.\nMás allá de ser una colección de descartes, lenidad revela el proceso creativo de la banda: demos en casete, improvisaciones extendidas y versiones tempranas que muestran composiciones en estado embrionario.\nIncluye una versión de diez minutos de 'Cicatriz' grabada en una sola noche de estudio.",
     "imagenes": [
-      "/assets/tapes/lenidad.png",
-      "/assets/covers/lenidad.png"
+      "/assets/tapes/lenidad.webp",
+      "/assets/covers/lenidad.webp"
     ]
   },
   {
@@ -177,8 +177,8 @@
     "stock": 10,
     "descripcion": "Álbum de rarezas que compila sesiones de estudio, caras B y versiones alternativas de canciones previamente editadas.\nMás allá de ser una colección de descartes, lenidad revela el proceso creativo de la banda: demos en casete, improvisaciones extendidas y versiones tempranas que muestran composiciones en estado embrionario.\nIncluye una versión de diez minutos de 'Cicatriz' grabada en una sola noche de estudio.",
     "imagenes": [
-      "/assets/cds/lenidad.png",
-      "/assets/covers/lenidad.png"
+      "/assets/cds/lenidad.webp",
+      "/assets/covers/lenidad.webp"
     ]
   },
   {
@@ -191,8 +191,8 @@
     "stock": 3,
     "descripcion": "Álbum de rarezas que compila sesiones de estudio, caras B y versiones alternativas de canciones previamente editadas.\nMás allá de ser una colección de descartes, lenidad revela el proceso creativo de la banda: demos en casete, improvisaciones extendidas y versiones tempranas que muestran composiciones en estado embrionario.\nIncluye una versión de diez minutos de 'Cicatriz' grabada en una sola noche de estudio.",
     "imagenes": [
-      "/assets/vinyl/lenidad.png",
-      "/assets/covers/lenidad.png"
+      "/assets/vinyl/lenidad.webp",
+      "/assets/covers/lenidad.webp"
     ]
   },
   {
@@ -205,8 +205,8 @@
     "stock": 2,
     "descripcion": "Álbum de rarezas que compila sesiones de estudio, caras B y versiones alternativas de canciones previamente editadas.\nMás allá de ser una colección de descartes, lenidad revela el proceso creativo de la banda: demos en casete, improvisaciones extendidas y versiones tempranas que muestran composiciones en estado embrionario.\nIncluye una versión de diez minutos de 'Cicatriz' grabada en una sola noche de estudio.",
     "imagenes": [
-      "/assets/boxes/lenidad.png",
-      "/assets/covers/lenidad.png"
+      "/assets/boxes/lenidad.webp",
+      "/assets/covers/lenidad.webp"
     ]
   },
   {
@@ -219,8 +219,8 @@
     "stock": 25,
     "descripcion": "Registro acústico que explora las texturas de instrumentos de cuerda tradicionales tratados con electrónica analógica.\nGuitarras acústicas procesadas por pedales modulares, cítaras y un arpa modificada conviven con secuencias de sintetizador en un equilibrio inestable entre lo orgánico y lo mecánico. Grabado en una antigua capilla convertida en estudio durante el verano austral.\nEdición en vinilo con funda impresa en serigrafía artesanal.",
     "imagenes": [
-      "/assets/cds/злаки.png",
-      "/assets/covers/злаки.png"
+      "/assets/cds/злаки.webp",
+      "/assets/covers/злаки.webp"
     ]
   },
   {
@@ -233,8 +233,8 @@
     "stock": 14,
     "descripcion": "Registro acústico que explora las texturas de instrumentos de cuerda tradicionales tratados con electrónica analógica.\nGuitarras acústicas procesadas por pedales modulares, cítaras y un arpa modificada conviven con secuencias de sintetizador en un equilibrio inestable entre lo orgánico y lo mecánico. Grabado en una antigua capilla convertida en estudio durante el verano austral.\nEdición en vinilo con funda impresa en serigrafía artesanal.",
     "imagenes": [
-      "/assets/vinyl/злаки.png",
-      "/assets/covers/злаки.png"
+      "/assets/vinyl/злаки.webp",
+      "/assets/covers/злаки.webp"
     ]
   },
   {
@@ -247,8 +247,8 @@
     "stock": 22,
     "descripcion": "Segundo larga duración que expande el espectro sonoro del dúo con colaboraciones orquestales.\nGrabado entre Berlín y Buenos Aires, legitimo incorpora cuerdas reales sobre una base de grooves electrónicos, explorando temáticas en torno a la autenticidad y la copia en la era digital. Mezclado por el reconocido ingeniero sueco Lars Nilsson, el álbum logra un equilibrio preciso entre la calidez analógica y la precisión digital.\nEdición limitada en vinilo traslúcido.",
     "imagenes": [
-      "/assets/tapes/legitimo.png",
-      "/assets/covers/legitimo.png"
+      "/assets/tapes/legitimo.webp",
+      "/assets/covers/legitimo.webp"
     ]
   },
   {
@@ -261,8 +261,8 @@
     "stock": 15,
     "descripcion": "Segundo larga duración que expande el espectro sonoro del dúo con colaboraciones orquestales.\nGrabado entre Berlín y Buenos Aires, legitimo incorpora cuerdas reales sobre una base de grooves electrónicos, explorando temáticas en torno a la autenticidad y la copia en la era digital. Mezclado por el reconocido ingeniero sueco Lars Nilsson, el álbum logra un equilibrio preciso entre la calidez analógica y la precisión digital.\nEdición limitada en vinilo traslúcido.",
     "imagenes": [
-      "/assets/cds/legitimo.png",
-      "/assets/covers/legitimo.png"
+      "/assets/cds/legitimo.webp",
+      "/assets/covers/legitimo.webp"
     ]
   },
   {
@@ -275,8 +275,8 @@
     "stock": 7,
     "descripcion": "Segundo larga duración que expande el espectro sonoro del dúo con colaboraciones orquestales.\nGrabado entre Berlín y Buenos Aires, legitimo incorpora cuerdas reales sobre una base de grooves electrónicos, explorando temáticas en torno a la autenticidad y la copia en la era digital. Mezclado por el reconocido ingeniero sueco Lars Nilsson, el álbum logra un equilibrio preciso entre la calidez analógica y la precisión digital.\nEdición limitada en vinilo traslúcido.",
     "imagenes": [
-      "/assets/vinyl/legitimo.png",
-      "/assets/covers/legitimo.png"
+      "/assets/vinyl/legitimo.webp",
+      "/assets/covers/legitimo.webp"
     ]
   },
   {
@@ -289,8 +289,8 @@
     "stock": 20,
     "descripcion": "Producción de cámara que reduce el arsenal sonoro del grupo a formatos acústicos y amplificación mínima.\nGuitarras limpias, percusión reducida a un kit mínimo y voces sin efecto revelan la arquitectura compositiva detrás del ruido. Grabado en una sola sala sin aislamiento acústico, mistral expone las costuras de las canciones con una honestidad que su producción habitual disimula.\nEdición limitada numerada a mano.",
     "imagenes": [
-      "/assets/cds/mistral.png",
-      "/assets/covers/mistral.png"
+      "/assets/cds/mistral.webp",
+      "/assets/covers/mistral.webp"
     ]
   },
   {
@@ -303,8 +303,8 @@
     "stock": 9,
     "descripcion": "Producción de cámara que reduce el arsenal sonoro del grupo a formatos acústicos y amplificación mínima.\nGuitarras limpias, percusión reducida a un kit mínimo y voces sin efecto revelan la arquitectura compositiva detrás del ruido. Grabado en una sola sala sin aislamiento acústico, mistral expone las costuras de las canciones con una honestidad que su producción habitual disimula.\nEdición limitada numerada a mano.",
     "imagenes": [
-      "/assets/vinyl/mistral.png",
-      "/assets/covers/mistral.png"
+      "/assets/vinyl/mistral.webp",
+      "/assets/covers/mistral.webp"
     ]
   },
   {
@@ -317,8 +317,8 @@
     "stock": 14,
     "descripcion": "Incursión en el territorio del paisaje sonoro con grabaciones de campo realizadas en la costa chilena durante un año.\nEl álbum superpone capas de field recordings —olas, aves marinas, barcos pesqueros— con improvisaciones instrumentales que responden al entorno. Una obra que desafía la frontera entre música y documental sonoro, estructurada como un viaje desde la superficie del océano hasta las profundidades abisales.",
     "imagenes": [
-      "/assets/cds/рыба.png",
-      "/assets/covers/рыба.png"
+      "/assets/cds/рыба.webp",
+      "/assets/covers/рыба.webp"
     ]
   },
   {
@@ -331,8 +331,8 @@
     "stock": 7,
     "descripcion": "Incursión en el territorio del paisaje sonoro con grabaciones de campo realizadas en la costa chilena durante un año.\nEl álbum superpone capas de field recordings —olas, aves marinas, barcos pesqueros— con improvisaciones instrumentales que responden al entorno. Una obra que desafía la frontera entre música y documental sonoro, estructurada como un viaje desde la superficie del océano hasta las profundidades abisales.",
     "imagenes": [
-      "/assets/vinyl/рыба.png",
-      "/assets/covers/рыба.png"
+      "/assets/vinyl/рыба.webp",
+      "/assets/covers/рыба.webp"
     ]
   },
   {
@@ -345,8 +345,8 @@
     "stock": 8,
     "descripcion": "Colaboración internacional que reúne a músicos de Chile, Japón y Polonia en una sesión de grabación transcontinental.\nCada pista fue compuesta a distancia y ensamblada en estudios dispersos por tres continentes, dando como resultado un álbum que navega entre el post-punk más oscuro y la experimentación libre.\nEl nombre del disco refiere al concepto de realismo sucio aplicado a la música: crudeza, verdad y texturas ásperas.",
     "imagenes": [
-      "/assets/cds/reālis.png",
-      "/assets/covers/reālis.png"
+      "/assets/cds/reālis.webp",
+      "/assets/covers/reālis.webp"
     ]
   },
   {
@@ -359,8 +359,8 @@
     "stock": 4,
     "descripcion": "Colaboración internacional que reúne a músicos de Chile, Japón y Polonia en una sesión de grabación transcontinental.\nCada pista fue compuesta a distancia y ensamblada en estudios dispersos por tres continentes, dando como resultado un álbum que navega entre el post-punk más oscuro y la experimentación libre.\nEl nombre del disco refiere al concepto de realismo sucio aplicado a la música: crudeza, verdad y texturas ásperas.",
     "imagenes": [
-      "/assets/vinyl/reālis.png",
-      "/assets/covers/reālis.png"
+      "/assets/vinyl/reālis.webp",
+      "/assets/covers/reālis.webp"
     ]
   },
   {
@@ -373,8 +373,8 @@
     "stock": 10,
     "descripcion": "Suite en cuatro movimientos que traza un recorrido geológico por la cordillera de los Andes.\nCompuesta para ensamble de cámara amplificado con sintetizadores modulares, la obra se despliega con la paciencia de procesos tectónicos: drones sostenidos, pulsaciones lentas y acumulaciones graduales de densidad sonora. Cada movimiento evoca una era geológica distinta, desde la formación del macizo andino hasta la erosión contemporánea.",
     "imagenes": [
-      "/assets/cds/камни.png",
-      "/assets/covers/камни.png"
+      "/assets/cds/камни.webp",
+      "/assets/covers/камни.webp"
     ]
   },
   {
@@ -387,8 +387,8 @@
     "stock": 5,
     "descripcion": "Suite en cuatro movimientos que traza un recorrido geológico por la cordillera de los Andes.\nCompuesta para ensamble de cámara amplificado con sintetizadores modulares, la obra se despliega con la paciencia de procesos tectónicos: drones sostenidos, pulsaciones lentas y acumulaciones graduales de densidad sonora. Cada movimiento evoca una era geológica distinta, desde la formación del macizo andino hasta la erosión contemporánea.",
     "imagenes": [
-      "/assets/vinyl/камни.png",
-      "/assets/covers/камни.png"
+      "/assets/vinyl/камни.webp",
+      "/assets/covers/камни.webp"
     ]
   },
   {
@@ -401,8 +401,8 @@
     "stock": 30,
     "descripcion": "Álbum de estudio que marca un punto de inflexión en la discografía de la banda, incorporando elementos de electrónica en vivo y procesamiento en tiempo real junto a su característico math rock.\nLas composiciones alternan pasajes de extrema complejidad rítmica con secciones de respiro casi ambientales, demostrando una madurez compositiva que consolida su sonido.\nGrabado en Estudio del Cerro durante los meses más lluviosos del año.",
     "imagenes": [
-      "/assets/cds/reta.png",
-      "/assets/covers/reta.png"
+      "/assets/cds/reta.webp",
+      "/assets/covers/reta.webp"
     ]
   },
   {
@@ -415,8 +415,8 @@
     "stock": 12,
     "descripcion": "Álbum de estudio que marca un punto de inflexión en la discografía de la banda, incorporando elementos de electrónica en vivo y procesamiento en tiempo real junto a su característico math rock.\nLas composiciones alternan pasajes de extrema complejidad rítmica con secciones de respiro casi ambientales, demostrando una madurez compositiva que consolida su sonido.\nGrabado en Estudio del Cerro durante los meses más lluviosos del año.",
     "imagenes": [
-      "/assets/vinyl/reta.png",
-      "/assets/covers/reta.png"
+      "/assets/vinyl/reta.webp",
+      "/assets/covers/reta.webp"
     ]
   }
 ]

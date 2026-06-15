@@ -85,7 +85,7 @@ a {
     /* HUES */ opacity: .1;
     /* INTR */ pointer-events: none; 
     /* PAGE */ z-index: 9999;
-    /* IMAG */ content: ''; background-image: url('/assets/noise.png'); 
+    /* IMAG */ content: ''; background-image: url('/assets/noise.webp'); 
 
   }
 
