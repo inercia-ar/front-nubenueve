@@ -42,18 +42,9 @@ export async function apiFetch(url, options = {}) {
 
 function resolveImage(path) {
 
-  /* 
-  
-    sobreescribir para transformar rutas de imagenes
-  
-    ejemplo:
-    if (!path) return ''
-    if (path.startsWith('http')) return path
-    return `https://cdn.x.com${path}`
-
-  */
-
-  return path
+  if (!path) return ''
+  if (path.startsWith('http')) return path
+  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
 }
 

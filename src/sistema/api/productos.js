@@ -24,7 +24,7 @@ export async function fetchCatalog() {
     return unpack(await apiFetch(`${baseURL}/productos`)).map(normalizeProduct)
   }
 
-  const res = await fetch('/productos.json')
+  const res = await fetch(`${import.meta.env.BASE_URL}productos.json`)
   if (!res.ok) throw new Error('Failed to load catalog')
   return unpack(await res.json()).map(normalizeProduct)
 
